@@ -5,8 +5,36 @@ A small set of config files to set up a system environment for maximum productiv
 ## Installation
 
 ```
-git clone git:://github.com/peter-murach/dotfiles ~/.dotfiles
+git clone git:://github.com/peter-murach/dotfiles ~/dotfiles
+```
+
+## Usage
+
+See all available tasks:
+```
+thor list
+```
+
+### Vim
+
+Related vim tasks are scoped by vim namespace. Installing vim component:
+
+```
+thor dotfiles:vim:add 'git-repo'
+```
+
+### RVM
+
+Install rvm from source
+
+```
+thor dotfiles:rvm:install
+```
+
+Update your version of rvm
+
+```
+thor dotfiles:rvm:update
 ```
 
 ## Environment
-
