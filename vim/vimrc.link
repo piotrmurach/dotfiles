@@ -1,0 +1,74 @@
+" This is vimrc for vim/gvim
+" This file contains main configuration settings
+" to aid in comfortable and prodactive programming
+" written by Piotr Murach
+
+set nocompatible
+
+" Pathogen runtime path manipulation, all plugin paths stored in runtimepath
+call pathogen#infect()
+
+" Show line numbers.
+set number
+" Show cursor position.
+set ruler
+
+" Turn on syntax highlightning
+syntax on
+" Pick current color scheme
+colorscheme desert
+" colorscheme slate
+
+" I like 2 spaces for indenting
+set shiftwidth=2
+
+" Set 2 stops
+set tabstop=2
+
+" Spaces instead of tabs
+set expandtab
+
+"Always set autoindenting on
+set autoindent
+
+" Show tab characters
+" set list
+
+"ignore cases when searching 
+set smartcase
+
+" No beeping.
+set visualbell
+
+" Turn on line wrapping.
+set wrap
+
+" Highlight matches as you type.
+set incsearch
+" Hightlight matches.
+
+" Folds up text based on indent
+" set foldmethod=indent
+
+" Enable unicode support
+set enc=utf-8
+
+" Enable list/listchars
+set listchars=tab:»·,trail:·
+set list
+
+" Tab mappings
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+" Shortcuts for moving between tabs.
+" Alt-j to move to the tab to the left
+
+" Alt-k to move to the tab to the right
