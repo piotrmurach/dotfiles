@@ -28,3 +28,21 @@
 [submodule "vim/vim.link/bundle/vim-surround"]
 	path = vim/vim.link/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/vim.link/bundle/nerdtree"]
+	path = vim/vim.link/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim/vim.link/bundle/syntastic"]
+	path = vim/vim.link/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/vim.link/bundle/tabular"]
+	path = vim/vim.link/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/vim.link/bundle/AutoComplPop"]
+	path = vim/vim.link/bundle/AutoComplPop
+	url = git://github.com/vim-scripts/AutoComplPop.git
+[submodule "vim/vim.link/bundle/snipmate.vim"]
+	path = vim/vim.link/bundle/snipmate.vim
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/vim.link/bundle/taglist.vim"]
+	path = vim/vim.link/bundle/taglist.vim
+	url = git://github.com/vim-scripts/taglist.vim.git
