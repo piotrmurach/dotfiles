@@ -1,0 +1,9 @@
+:libraries:
+  rails:
+    :commands:
+      new:
+      console:
+      server:
+    :command_aliases:
+      console: c
+      server: s

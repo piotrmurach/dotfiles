@@ -37,6 +37,17 @@ module Dotfiles
 
   end # Base
 
+  class Ruby < Base
+    include Thor::Actions
+
+    desc 'install', 'Install all ruby & irb files, save your old files and symlinks new ones'
+    method_options :force => :boolean
+    def install
+      linkables = Dir.glob('ruby/**{.link}')
+    end
+
+  end # Ruby
+
   class Rvm < Base
 
     desc 'install', 'Installs RVM'
@@ -151,15 +162,7 @@ module Dotfiles
       run "git rm --cached #{root}/vim/vim.link/bundle/#{extract_plugin_name(url)}"
       FileUtils.rm_rf "#{root}/vim/vim.link/bundle/#{extract_plugin_name(url)}"
 
-#      plugins.each do |plug|
-#       puts "++#{plug.strip}++"
-#      end
-#      puts '--------------'
-#      puts "++#{url}++"
-#      puts '--------------'
-#      puts plugins[0].strip == url
-#      puts plugins[0].index(url) >= 0
-     save_plugins plugins.reject { |plug| plug.strip == url }
+      save_plugins plugins.reject { |plug| plug.strip == url }
     end
 
     desc 'pathogen', 'Installs pathogen if not already present'
@@ -212,5 +215,6 @@ module Dotfiles
     end
 
   end # Vim
+
 
 end # Dotfiles
