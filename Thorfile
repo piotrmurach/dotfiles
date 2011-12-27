@@ -1,3 +1,5 @@
+#!/user/bin/ruby
+
 require 'fileutils'
 
 module Dotfiles
