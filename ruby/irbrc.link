@@ -1,0 +1,49 @@
+#!/user/bin/ruby
+
+require 'irb/completion'
+require 'irb/ext/save-history'
+require 'rubygems' unless ENV['NO_RUBYGEMS']
+
+require 'boson'
+require 'boson/console' if Boson::VERSION >= '0.5.0'
+Boson.start
+
+#
+# Setup irb
+#
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']/.irb_history}"
+IRB.conf[:PROMPT_MODE]  = :SIMPLE
+IRB.conf[:AUTO_INDENT]  = true
+
+#
+# Extend object with helper methods
+#
+class Object
+  # list methods which aren't in superclass
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
+  end
+
+  # print documentation
+  #
+  def ri(method = nil)
+    unless method && method =~ /^[A-Z]/ # if class isn't specified
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    puts `ri '#{method}'`
+  end
+end
+
+#
+# Load rails irb extensions
+#
+railsrc_path = File.dirname(__FILE__) + '/.railsrc'
+if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
+  begin
+    load railsrc_path
+  rescue Exception
+    warn "Counld not load: #{railsrc_path}"
+  end
+end
