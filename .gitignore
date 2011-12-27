@@ -1,0 +1,7 @@
+.DS_Store
+*.swp
+
+## Project::SPECIFIC
+tmp
+.bundle
+Gemfile.loc
