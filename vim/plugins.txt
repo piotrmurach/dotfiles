@@ -1,3 +1,0 @@
-git://github.com/tpope/vim-rails.git
-git://github.com/tpope/vim-cucumber.git
-git://github.com/tpope/vim-git.git
