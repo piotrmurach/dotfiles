@@ -6,6 +6,8 @@ A small set of config files to set up a system environment for maximum productiv
 
 ```
 git clone git:://github.com/peter-murach/dotfiles ~/dotfiles
+bundle install
+thor dotfiles:install
 ```
 
 ## Usage
@@ -14,6 +16,9 @@ See all available tasks:
 ```
 thor list
 ```
+
+### Ruby
+
 
 ### Vim
 
