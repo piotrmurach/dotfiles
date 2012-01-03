@@ -15,4 +15,4 @@ module Dotfiles
 
 end # Dotfiles
 
-Dotfiles.load_thor_files('lib')
+Dotfiles.load_thor_files(File.expand_path('../lib', __FILE__))
