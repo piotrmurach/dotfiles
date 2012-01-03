@@ -7,6 +7,8 @@ module Dotfiles
   class Base < Thor
     include Thor::Actions
 
+    class_option :linkable_path, :type => :string
+
     no_tasks do
       def root
         File.dirname(__FILE__)
@@ -15,14 +17,71 @@ module Dotfiles
       def user
         @user = %x["whoami"].chomp
       end
+
+      def define_linkable_dir &block
+        @linkables = block.call
+      end
+
+      def extract_symlink_name path
+        path.split('/').last.gsub('.link','')
+      end
     end
 
     desc 'install', 'Hook dotfiles into system-standard positions.'
     def install
+      skip_all = false
+      overwirte_all = false
+      backup_all = false
+
+      linkables = if options.linkable_path?
+        Dir.glob(options.linkable_path)
+      else
+        Dir.glob('*/**{.link}')
+      end
+
+      linkables.each do |linkable|
+        file = extract_symlink_name linkable
+        target = "#{ENV['HOME']}/.#{file}"
+
+        if File.exists?(target) || File.symlink?(target)
+          unless skip_all || overwrite_all || backup_all
+            case ask("File already exists: #{target}, what do you want to do? \n [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all", :green)
+              when 'o' then overwrite = true
+              when 'b' then backup = true
+              when 'O' then overwrite_all = true
+              when 'B' then backup_all = true
+              when 'S' then skip_all = true
+              when 's' then next
+            end
+          end
+          FileUtils.rm_rf(target) if overwrite || overwrite_all
+          FileUtils.mv target, "#{target}.backup" if backup || backup_all
+        end
+        link_file file, target, options[:force]
+      end
     end
 
-    desc'uninstall', 'Uninstall all dotfiles.'
+    desc 'uninstall', 'Uninstall all dotfiles.'
     def uninstall
+      linkables = if options.linkable_path?
+        Dir.glob(options.linkable_path)
+      else
+        Dir.glob('*/**{.link}')
+      end
+
+      linkables.each do |linkable|
+        file = extract_symlink_name linkable
+        target = "#{ENV['HOME']}/.#{file}"
+
+        if File.exists?(target)
+          FileUtils.rm(target)
+        end
+
+        if File.exists?("#{ENV['HOME']}/.#{file}.backup")
+          say "Restoring file  #{file}", :yellow
+          run 'mv "$HOME/.#{file}.backup" "$HOME/.#{file}"'
+        end
+      end
     end
 
     desc 'brew', 'Installs homebrew package manager'
@@ -31,39 +90,59 @@ module Dotfiles
       run " /usr/bin/ruby -e \"$(curl -fsSL https://raw.github.com/gist/323731)\""
     end
 
-    desc 'gcc', 'Prints out a command to install GCC'
+    desc 'gcc', 'Installs GCC compiler'
     def gcc
+      say "Installing gcc compiler for #{user}", :green
+      run "curl https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg > GCC-10.6.pkg"
     end
-
   end # Base
 
   class Ruby < Base
     include Thor::Actions
 
-    desc 'install', 'Install all ruby & irb files, save your old files and symlinks new ones'
+    desc 'install', 'Installs all ruby & irb files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
     def install
-      linkables = Dir.glob('ruby/**{.link}')
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','ruby','*.{link}')
+    end
+
+    desc 'uninstall', 'Uninstalls all ruby files, reverts back all backups.'
+    method_options :foce => :boolean
+    def uninstall
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','ruby','*.{link}')
     end
 
   end # Ruby
 
   class Rvm < Base
 
-    desc 'install', 'Installs RVM'
-    def install
+    desc 'setup', 'Installs RVM'
+    def setup
       say "Installing rvm for #{user}", :green
       run "bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)"
     end
 
     desc 'update', 'Updates RVM to newest version'
     def update
+      say "Updating rvm", :green
       run "rvm get head"
     end
 
   end # Rvm
 
   class Git < Base
+
+    desc 'install', 'Installs all git files, saves your old files and symlinks new ones.'
+    method_options :force => :boolean
+    def install
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','git','*.{link}')
+    end
+
+    desc 'uninstall', 'Uninstalls all git files, reverts back all backups.'
+    method_options :foce => :boolean
+    def uninstall
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','git','*.{link}')
+    end
 
   end # Git
 
@@ -74,10 +153,6 @@ module Dotfiles
 
       def extract_plugin_name url
         url.split('/').last.gsub('.git', '')
-      end
-
-      def extract_symlink_name path
-        path.split('/').last.gsub('.link','')
       end
 
       def install_plugin url
@@ -179,42 +254,22 @@ module Dotfiles
     desc 'install', 'Installs all vim files, saves your old vim config and symlinks new one'
     method_options :force => :boolean
     def install
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','vim','*.{link}')
+    end
 
-      skip_all = false
-      overwirte_all = false
-      backup_all = false
-
-      # TODO could be a block in Base that accepts linkable dir
-      linkables = Dir.glob('vim/**{.link}')
-
-      linkable.each do |linkable|
-        file = extract_symlink_name linkable
-        target = "#{ENV['HOME']}/.#{file}"
-
-        if File.exists?(target) || File.symlink?(target)
-          unless skip_all || overwrite_all || backup_all
-            case ask("File already exists: #{target}, what do you want to do? \n [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all", :green)
-              when 'o' then overwrite = true
-              when 'b' then backup = true
-              when 'O' then overwrite_all = true
-              when 'B' then backup_all = true
-              when 'S' then skip_all = true
-              when 's' then next
-            end
-          end
-          FileUtils.rm_rf(target) if overwrite || overwrite_all
-          FileUtils.mv target, "#{target}.backup" if backup || backup_all
-        end
-        link_file file, target, options[:force]
-      end
+    desc 'uninstall', 'Uninstalls all vim files, reverts back all backups.'
+    method_options :foce => :boolean
+    def uninstall
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','vim','*.{link}')
     end
 
     desc 'list', 'List currently installed extensions.'
     def list
-      say plugins, :yellow
+      plugins.each do |plugin|
+        say plugin, :yellow
+      end
     end
 
   end # Vim
-
 
 end # Dotfiles
