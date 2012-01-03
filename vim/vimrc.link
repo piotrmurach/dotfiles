@@ -57,6 +57,13 @@ set enc=utf-8
 set listchars=tab:»·,trail:·
 set list
 
+" Mappings for often mistyped :w as :W
+nmap :W :w
+nmap :W! :w!
+nmap :Q! :q!
+nmap :Wq! :wq!
+nmap :WQ! :wq!
+
 " Tab mappings
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit

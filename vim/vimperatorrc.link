@@ -1,0 +1,11 @@
+" Settings
+" by Piotr Murach
+
+set runtimepath=~/.vimperator
+set ignorecase
+set incsearch
+set focuscontent
+set smartcase
+set defsearch=google
+
+colorscheme indigo
