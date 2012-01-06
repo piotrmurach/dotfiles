@@ -4,4 +4,4 @@
 ## Project::SPECIFIC
 tmp
 .bundle
-Gemfile.loc
+Gemfile.lock
