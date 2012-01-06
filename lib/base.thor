@@ -28,7 +28,7 @@ module Dotfiles
     desc 'install', 'Hook dotfiles into system-standard positions.'
     def install
       skip_all = false
-      overwirte_all = false
+      overwrite_all = false
       backup_all = false
 
       linkables = if options.linkable_path?
@@ -38,24 +38,28 @@ module Dotfiles
       end
 
       linkables.each do |linkable|
+        overwrite = false
+        backup = false
+
         file = extract_symlink_name linkable
         target = "#{ENV['HOME']}/.#{file}"
 
         if File.exists?(target) || File.symlink?(target)
           unless skip_all || overwrite_all || backup_all
             case ask("File already exists: #{target}, what do you want to do? \n [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all", :green)
-              when 'o' then overwrite = true
-              when 'b' then backup = true
-              when 'O' then overwrite_all = true
-              when 'B' then backup_all = true
-              when 'S' then skip_all = true
-              when 's' then next
+            when 'o' then overwrite = true
+            when 'b' then backup = true
+            when 'O' then overwrite_all = true
+            when 'B' then backup_all = true
+            when 'S' then skip_all = true
+            when 's' then next
             end
           end
           FileUtils.rm_rf(target) if overwrite || overwrite_all
-          FileUtils.mv target, "#{target}.backup" if backup || backup_all
+          FileUtils.mv "$HOME/.#{file}", "$HOME/.#{target}.backup" if backup || backup_all
         end
-        link_file file, target, options[:force]
+        say "Symlinking #{file} to #{target}", :green
+        link_file "$PWD/#{linkable}", target, options[:force]
       end
     end
 
