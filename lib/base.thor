@@ -56,7 +56,7 @@ module Dotfiles
         Dir.glob('*/**{.link}')
       end
 
-      home_dir = path ? path.to_s : "~#{user}"
+      home_dir = path ? path.to_s : File.expand_path("~#{user}")
 
       linkables.each do |linkable|
         overwrite = false
@@ -81,7 +81,7 @@ module Dotfiles
             say("Overwritting #{target}", :red)
           end
           if backup || backup_all
-            FileUtils.mv "$HOME/.#{file}", "$HOME/.#{target}.backup"
+            FileUtils.mv "#{home_dir}/.#{file}", "#{home_dir}/.#{file}.backup"
             say("Backing up #{target}", :green)
           end
         end
