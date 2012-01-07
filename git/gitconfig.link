@@ -1,0 +1,25 @@
+[user]
+  name = Piotr Murach
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  visual = gitk
+  di = diff
+  dc = diff
+  list = log --graph --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  l = log --name-status --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  pom = push origin master
+  amend = commit --amend
+  oneline = log --pretty=oneline
+[core]
+  editor = vim -f
+  autocrlf = input
+[merge]
+  tool = vimdiff
+[color]
+  ui = true
