@@ -4,10 +4,12 @@ module Dotfiles
 
   class Base < Thor
     include Thor::Actions
+    Thor::Sandbox::Dotfiles::Base.source_root File.expand_path('../..', __FILE__)
 
     class_option :linkable_path, :type => :string
 
     no_tasks do
+
       def root
         File.dirname(__FILE__)
       end
@@ -23,10 +25,27 @@ module Dotfiles
       def extract_symlink_name path
         path.split('/').last.gsub('.link','')
       end
+
+      def self.inherited base
+        super
+
+        base.source_root
+      end
     end
 
-    desc 'install', 'Hook dotfiles into system-standard positions.'
-    def install
+    desc 'install [PATH]', 'Hook dotfiles into system-standard positions.'
+    method_option :skip_all, :type => :boolean, :aliases => "-s",
+                  :default => :false,
+                  :desc => "Skip dotfiles that already exist"
+    method_option :backup_all, :type => :boolean, :aliases => "-b",
+                  :default => :false,
+                  :desc => "Backup dotfiles that already exist"
+    method_option :overwrite_all, :type => :boolean, :aliases => "-o",
+                  :default => :false,
+                  :desc => "Backup dotfiles that already exist"
+    method_option :force, :type => :boolean, :aliases => "-f",
+                  :default => :false
+    def install(path = nil)
       skip_all = false
       overwrite_all = false
       backup_all = false
@@ -37,12 +56,14 @@ module Dotfiles
         Dir.glob('*/**{.link}')
       end
 
+      home_dir = path ? path.to_s : "~#{user}"
+
       linkables.each do |linkable|
         overwrite = false
         backup = false
 
         file = extract_symlink_name linkable
-        target = "#{ENV['HOME']}/.#{file}"
+        target = "#{home_dir}/.#{file}"
 
         if File.exists?(target) || File.symlink?(target)
           unless skip_all || overwrite_all || backup_all
@@ -55,11 +76,17 @@ module Dotfiles
             when 's' then next
             end
           end
-          FileUtils.rm_rf(target) if overwrite || overwrite_all
-          FileUtils.mv "$HOME/.#{file}", "$HOME/.#{target}.backup" if backup || backup_all
+          if overwrite || overwrite_all
+            FileUtils.rm_rf(target)
+            say("Overwritting #{target}", :red)
+          end
+          if backup || backup_all
+            FileUtils.mv "$HOME/.#{file}", "$HOME/.#{target}.backup"
+            say("Backing up #{target}", :green)
+          end
         end
-        say "Symlinking #{file} to #{target}", :green
-        link_file "$PWD/#{linkable}", target, options[:force]
+        link_file linkable, target, options[:force]
+        say("Symlinking #{linkable} to #{target}", :green)
       end
     end
 
