@@ -9,6 +9,7 @@ end
 %w[
   prompt
   database_helpers
+  route_helpers
 ].each do |path|
   require File.expand_path "../.rails_ext/#{path}", __FILE__
 end
