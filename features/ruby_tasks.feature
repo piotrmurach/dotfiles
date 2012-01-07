@@ -5,10 +5,21 @@ Feature: Ruby tasks
   I want to be able to issue them
 
   Background:
-    Given an empty file named "ruby/gemrc.link"
-    And an empty file named "ruby/irbrc.link"
+    Given a home directory with files:
+      """
+      .boson
+      .gemrc
+      .irbrc
+      .railsrc
+      """
+    Given a directory named "ruby" with files:
+      """
+      gemrc.link
+      irbrc.link
+      """
 
-  Scenario: Skip all installed ruby dotfiles
+  Scenario: Overwrite existing ruby dotfiles
     Given I run `thor dotfiles:ruby:install` interactively
-    And I type "S"
-    Then the output should contain ""
+    Then the stdout should contain "File already exists:"
+    When I type "o"
+    When I type "o"

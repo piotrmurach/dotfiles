@@ -9,8 +9,7 @@ Feature: Vim tasks
       """
       git://github.com/tpope/vim-rails.git
       git://github.com/tpope/vim-cucumber.git
-
       """
-    When I run `thor dotfiles:vim:list`
-    Then the output should contain "git://github.com/tpope/vim-rails.git"
-    And the output should contain "git://github.com/tpope/vim-cucumber.git"
+   When I run `thor dotfiles:vim:list`
+   Then the output should contain "git://github.com/tpope/vim-rails.git"
+   And the output should contain "git://github.com/tpope/vim-cucumber.git"
