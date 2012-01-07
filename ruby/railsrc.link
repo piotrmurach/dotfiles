@@ -1,26 +1,14 @@
 #!/user/bin/ruby
 
-if !Rails.application
-  warn 'Rails is not loaded, skipping .railsrc'
-else
+begin
+  require 'hirb'
+  Hirb.enable
+rescue LoadError
+end
 
-  # DatabaseHelpers
-
-  #
-  # ActiveRecord SQL quires
-  #
-  def show_sql(stream = STDOUT)
-    ActiveRecord::Base.logger = Logger.new stream
-    ActiveRecord::Base.clear_active_connections!
-  end
-
-  def hide_sql
-    show_sql nil
-  end
-
-  # Execute sqls
-  def sql(query)
-    ActiveRecord::Base.connection.select_all(query)
-  end
-
-end if Rails.application
+%w[
+  prompt
+  database_helpers
+].each do |path|
+  require File.expand_path "../.rails_ext/#{path}", __FILE__
+end
