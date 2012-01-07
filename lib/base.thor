@@ -26,6 +26,11 @@ module Dotfiles
         path.split('/').last.gsub('.link','')
       end
 
+      def check_presence name
+        system("which #{name}")
+      end
+
+      # Set source root for all subclasses
       def self.inherited base
         super
 
@@ -78,17 +83,18 @@ module Dotfiles
           end
           if overwrite || overwrite_all
             FileUtils.rm_rf(target)
-            say("Overwritting #{target}", :red)
+            say "Overwritting #{target}", :red
           end
           if backup || backup_all
             FileUtils.mv "#{home_dir}/.#{file}", "#{home_dir}/.#{file}.backup"
-            say("Backing up #{target}", :green)
+            say "Backing up #{target}", :green
           end
         end
         link_file linkable, target, options[:force]
-        say("Symlinking #{linkable} to #{target}", :green)
+        say "Symlinking #{linkable} to #{target}", :green
       end
     end
+    default_task :install
 
     desc 'uninstall', 'Uninstall all dotfiles.'
     def uninstall
@@ -123,6 +129,23 @@ module Dotfiles
     def gcc
       say "Installing gcc compiler for #{user}", :green
       run "curl https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg > GCC-10.6.pkg"
+    end
+
+    desc 'toolbox', 'Installs essential tools using homebrew'
+    method_option :force, :type => :boolean, :aliases => "-f", :default => false
+    def toolbox
+      [
+        'ack',
+        'zsh',
+        'tmux'
+      ].each do |tool|
+        if check_presence(tool) && !options[:force]
+          say "#{tool} is already installed, skipping. Run task with -f to force", :red
+        else
+          say "Installing #{tool}", :green
+          run "brew install #{tool}"
+        end
+      end
     end
   end # Base
 
