@@ -1,3 +1,12 @@
+# ~/tmux.conf
+# This file contains main configuration settings
+# 
+# Global settings
+
+# Set prefix key to Ctrl-a
+unbind-key C-b
+set-option -g prefix C-a
+
 # allow for scrolling and text selection from scrollback
 set -g mode-mouse on
 
@@ -12,3 +21,16 @@ set -g set-titles on
 
 # instructs tmux to expect UTF-8 sequences
 setw -g utf8 on
+
+# horizontal/vertical splits
+unbind %
+bind - split-window -v
+bind _ split-window -v
+bind | split-window -h
+
+# Enable vim pane switching
+setw -g mode-keys vi
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R

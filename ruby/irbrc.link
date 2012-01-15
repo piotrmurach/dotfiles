@@ -28,10 +28,6 @@ class Object
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
 
-  def dupa
-   'wolowa'
-  end
-
   # print documentation
   #
   def ri(method = nil)
