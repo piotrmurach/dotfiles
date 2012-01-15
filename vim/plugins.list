@@ -15,3 +15,6 @@ git://github.com/godlygeek/tabular.git
 git://github.com/vim-scripts/AutoComplPop.git
 git://github.com/msanders/snipmate.vim.git
 git://github.com/vim-scripts/taglist.vim.git
+git://github.com/mileszs/ack.vim.git
+git://github.com/kikijump/tslime.vim.git
+git://github.com/jgdavey/vim-turbux.git

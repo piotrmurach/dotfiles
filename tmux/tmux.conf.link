@@ -1,0 +1,14 @@
+# allow for scrolling and text selection from scrollback
+set -g mode-mouse on
+
+# tell tmux to use 256 colour terminal
+set -g default-terminal "screen-256color"
+
+# start indexing windows from 1, just like tabs
+set -g base-index 1
+
+# window titles
+set -g set-titles on
+
+# instructs tmux to expect UTF-8 sequences
+setw -g utf8 on
