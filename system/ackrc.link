@@ -1,0 +1,6 @@
+# Add HAML and Selenium to ruby list
+--type-add=ruby=.haml,.rake,.rsel
+--type-set=rdoc=.rdoc,.yardoc,.sdoc
+
+# Sort found files lexically
+--sort-files
