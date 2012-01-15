@@ -46,3 +46,12 @@
 [submodule "vim/vim.link/bundle/taglist.vim"]
 	path = vim/vim.link/bundle/taglist.vim
 	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/vim.link/bundle/ack.vim"]
+	path = vim/vim.link/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/vim.link/bundle/tslime.vim"]
+	path = vim/vim.link/bundle/tslime.vim
+	url = git://github.com/kikijump/tslime.vim.git
+[submodule "vim/vim.link/bundle/vim-turbux"]
+	path = vim/vim.link/bundle/vim-turbux
+	url = git://github.com/jgdavey/vim-turbux.git
