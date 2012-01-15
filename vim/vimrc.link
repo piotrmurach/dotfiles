@@ -8,54 +8,34 @@ set nocompatible
 " Pathogen runtime path manipulation, all plugin paths stored in runtimepath
 call pathogen#infect()
 
-" Show line numbers.
-set number
-" Show cursor position.
-set ruler
+let mapleader=","    " Change the mapleader from \ to ,
 
-" Turn on syntax highlightning
-syntax on
-" Pick current color scheme
-colorscheme desert
-" colorscheme slate
-
-" I like 2 spaces for indenting
-set shiftwidth=2
-
-" Set 2 stops
-set tabstop=2
-
-" Spaces instead of tabs
-set expandtab
-
-"Always set autoindenting on
-set autoindent
-
-" Show tab characters
-" set list
-
-"ignore cases when searching 
-set smartcase
-
-" No beeping.
-set visualbell
-
-" Turn on line wrapping.
-set wrap
-
-" Highlight matches as you type.
-set incsearch
-" Hightlight matches.
-
-" Folds up text based on indent
-" set foldmethod=indent
-
-" Enable unicode support
-set enc=utf-8
-
-" Enable list/listchars
-set listchars=tab:»·,trail:·
+set number           " Show line numbers.
+set showmode         " Show what mode we are currently in
+set ruler            " Show cursor position.
+set shiftwidth=2     " I like 2 spaces for indenting
+set tabstop=2        " Set 2 stops
+set expandtab        " Spaces instead of tabs
+set autoindent       " Always set autoindenting on
+set smartcase        " Ignore cases when searching
+set showmatch        " Show matching parenthesis
+set wrap             " Turn on line wrapping.
+set visualbell       " No beeping.
+set listchars=tab:»·,trail:· " Enable list/listchars
 set list
+set incsearch        " Highlight matches as you type.
+set enc=utf-8        " Enable unicode support
+" set foldmethod=indent " Folds up text based on indent
+set history=1000     " Remember more command and search history
+set undolevels=1000
+set wildmenu         " Make tab completion for files/buffers act like bash
+set wildmode=list:full "Show a list when pressing tab, and complete first match
+set hidden           " Hide buffers instead of closing them
+set title            " Change the terminal's title
+
+syntax enable        " Turn on syntax highlightning
+set background=dark
+colorscheme desert   " Pick current color scheme
 
 " Mappings for often mistyped :w as :W
 nmap :W :w
