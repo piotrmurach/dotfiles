@@ -23,7 +23,6 @@ begin
   require 'boson/console' if Boson::VERSION >= '0.5.0'
   Boson.start
 rescue LoadError
-  warn "Failed to load 'boson'"
 end
 
 #
@@ -80,4 +79,14 @@ if defined?(Rails) || ENV['RAILS_ENV']
   rescue Exception
     warn "Counld not load: #{railsrc_path}: #{$!.message}"
   end
+end
+
+#
+# Load Pry
+#
+begin
+  require 'pry'
+  Pry.start
+  exit
+rescue LoadError
 end
