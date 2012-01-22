@@ -1,14 +1,29 @@
 #!/user/bin/ruby
 
+# Add gems from rvm global gemset
+if defined?(::Bundler)
+  global_gemset = ENV['GEM_PATH'].split(':').grep(/rub.*@global/).first
+  if global_gemset
+    all_global_gem_paths = Dir.glob("#{global_gemset}/gems/*")
+    all_global_gem_paths.each do |path|
+      $LOAD_PATH << "#{path}/lib"
+    end
+  end
+end
+
 require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems' unless ENV['NO_RUBYGEMS']
 
+#
+# Load Boson
+#
 begin
   require 'boson'
   require 'boson/console' if Boson::VERSION >= '0.5.0'
   Boson.start
 rescue LoadError
+  warn "Failed to load 'boson'"
 end
 
 #
