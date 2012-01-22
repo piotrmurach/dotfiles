@@ -52,3 +52,6 @@
 [submodule "vim/vim.link/bundle/vim-turbux"]
 	path = vim/vim.link/bundle/vim-turbux
 	url = git://github.com/jgdavey/vim-turbux.git
+[submodule "vim/vim.link/bundle/vim-coffee-script"]
+	path = vim/vim.link/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
