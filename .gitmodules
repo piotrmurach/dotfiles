@@ -37,9 +37,6 @@
 [submodule "vim/vim.link/bundle/tabular"]
 	path = vim/vim.link/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/vim.link/bundle/AutoComplPop"]
-	path = vim/vim.link/bundle/AutoComplPop
-	url = git://github.com/vim-scripts/AutoComplPop.git
 [submodule "vim/vim.link/bundle/snipmate.vim"]
 	path = vim/vim.link/bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git

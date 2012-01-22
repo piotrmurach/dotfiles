@@ -12,7 +12,6 @@ git://github.com/tpope/vim-surround.git
 git://github.com/scrooloose/nerdtree.git
 git://github.com/scrooloose/syntastic.git
 git://github.com/godlygeek/tabular.git
-git://github.com/vim-scripts/AutoComplPop.git
 git://github.com/msanders/snipmate.vim.git
 git://github.com/vim-scripts/taglist.vim.git
 git://github.com/mileszs/ack.vim.git
