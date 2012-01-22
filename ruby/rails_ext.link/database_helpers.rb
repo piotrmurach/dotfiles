@@ -35,6 +35,13 @@ end
 IRB.conf[:IRB_RC] = Proc.new { define_model_find_shortcuts }
 
 if defined? Hirb
+
+  # Fix hirb compatibility with pry
+  if defined? Pry
+    Pry.config.print = proc do |output, value|
+      Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+    end
+  end
   def tables
     Hirb::Console.render_output(
       ActiveRecord::Base.connection.tables.map { |e| [e] },
