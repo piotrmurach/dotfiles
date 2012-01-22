@@ -1,0 +1,12 @@
+project_name: workspace
+project_root: ~/workspace
+tabs:
+  - Vim:
+    layout: main-vertical
+    panes:
+      - vim
+  - Shell:
+    layout: even-vertical
+    panes:
+      -
+      -

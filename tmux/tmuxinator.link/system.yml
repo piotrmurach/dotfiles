@@ -1,0 +1,4 @@
+project_name: system
+tabs:
+  - vim: vim
+  - system: cd /
