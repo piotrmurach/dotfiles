@@ -107,16 +107,16 @@ module Dotfiles
       run "curl -so #{root}/vim/vim.link/autoload/pathogen.vim #{url}"
     end
 
-    desc 'install', 'Installs all vim files, saves your old vim config and symlinks new one'
+    desc 'install [FILE]', 'Installs all vim files, saves your old vim config and symlinks new one'
     method_options :force => :boolean
-    def install
-      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','vim','*.{link}')
+    def install(component = nil)
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','vim',"*#{component}.{link}")
     end
 
-    desc 'uninstall', 'Uninstalls all vim files, reverts back all backups.'
+    desc 'uninstall [FILE]', 'Uninstalls all vim files, reverts back all backups.'
     method_options :foce => :boolean
-    def uninstall
-      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','vim','*.{link}')
+    def uninstall(component = nil)
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','vim',"*#{component}.{link}")
     end
 
     desc 'list', 'List currently installed extensions.'

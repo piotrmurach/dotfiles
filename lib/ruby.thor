@@ -5,16 +5,16 @@ module Dotfiles
   class Ruby < Base
     include Thor::Actions
 
-    desc 'install', 'Installs all ruby & irb files, saves your old files and symlinks new ones.'
+    desc 'install [FILE]', 'Installs all ruby & irb files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
-    def install
-      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','ruby','*.{link}')
+    def install(component = nil)
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','ruby',"*#{component}.{link}")
     end
 
-    desc 'uninstall', 'Uninstalls all ruby files, reverts back all backups.'
+    desc 'uninstall [FILE]', 'Uninstalls all ruby files, reverts back all backups.'
     method_options :foce => :boolean
-    def uninstall
-      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','ruby','*.{link}')
+    def uninstall(component = nil)
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','ruby',"*#{component}.{link}")
     end
 
   end # Ruby

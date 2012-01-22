@@ -4,16 +4,16 @@ module Dotfiles
 
   class Git < Base
 
-    desc 'install', 'Installs all git files, saves your old files and symlinks new ones.'
+    desc 'install [FILE]', 'Installs all git files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
-    def install
-      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','git','*.{link}')
+    def install(component = nil)
+      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','git',"*#{component}.{link}")
     end
 
-    desc 'uninstall', 'Uninstalls all git files, reverts back all backups.'
+    desc 'uninstall [FILE]', 'Uninstalls all git files, reverts back all backups.'
     method_options :foce => :boolean
-    def uninstall
-      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','git','*.{link}')
+    def uninstall(component = nil)
+      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','git',"*#{component}.{link}")
     end
 
   end # Git
