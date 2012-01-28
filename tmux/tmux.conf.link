@@ -34,3 +34,9 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
+
+# Resize panes by two lines
+bind < resize-pane -L 2
+bind > resize-pane -R 2
+bind - resize-pane -D 2
+bind + resize-pane -U 2
