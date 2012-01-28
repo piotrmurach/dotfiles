@@ -24,6 +24,7 @@ set visualbell       " No beeping.
 set listchars=tab:»·,trail:· " Enable list/listchars
 set list
 set incsearch        " Highlight matches as you type.
+set lazyredraw       " Do not redraw while running macros
 set enc=utf-8        " Enable unicode support
 " set foldmethod=indent " Folds up text based on indent
 set history=1000     " Remember more command and search history
@@ -32,6 +33,9 @@ set wildmenu         " Make tab completion for files/buffers act like bash
 set wildmode=list:full "Show a list when pressing tab, and complete first match
 set hidden           " Hide buffers instead of closing them
 set title            " Change the terminal's title
+set ttimeoutlen=50   " Make Esc work faster
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
+set laststatus=2     " Always show status line
 
 syntax enable        " Turn on syntax highlightning
 set background=dark
@@ -56,6 +60,5 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Shortcuts for moving between tabs.
-" Alt-j to move to the tab to the left
 
-" Alt-k to move to the tab to the right
+" Scripts
