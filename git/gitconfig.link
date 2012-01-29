@@ -19,7 +19,11 @@
 [core]
   editor = vim -f
   autocrlf = input
-[merge]
-  tool = vimdiff
 [color]
   ui = true
+[merge]
+	tool = git-merge.rb
+[mergetool "git-merge.rb"]
+	cmd = git-merge.rb \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool]
+	trustExitCode = false
