@@ -55,3 +55,6 @@
 [submodule "vim/vim.link/bundle/vim-coffee-script"]
 	path = vim/vim.link/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "git/meld"]
+	path = git/meld
+	url = git://git.gnome.org/meld
