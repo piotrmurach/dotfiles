@@ -36,6 +36,7 @@ module Dotfiles
 
         base.source_root
       end
+
     end
 
     desc 'install [PATH]', 'Hook dotfiles into system-standard positions.'
@@ -137,7 +138,9 @@ module Dotfiles
       [
         'ack',
         'zsh',
-        'tmux'
+        'tmux',
+        'grc',
+        'irssi'
       ].each do |tool|
         if check_presence(tool) && !options[:force]
           say "#{tool} is already installed, skipping. Run task with -f to force", :red
