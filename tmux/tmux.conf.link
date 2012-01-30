@@ -1,6 +1,6 @@
 # ~/tmux.conf
 # This file contains main configuration settings
-# 
+#
 # Global settings
 
 # Set prefix key to Ctrl-a
@@ -22,6 +22,43 @@ set -g set-titles on
 # instructs tmux to expect UTF-8 sequences
 setw -g utf8 on
 
+# start window indexing at one instead of zero
+set -g base-index 1
+
+# Statusbar
+
+# use vi-style key bindings in the status line
+set -g status-keys vi
+
+# amount of time for which status line messages and other indicators
+# are displayed. time is in milliseconds.
+set -g display-time 2000
+
+# default statusbar colors
+set -g status-fg white
+set -g status-bg black
+set -g status-attr default
+
+# default window title colors
+setw -g window-status-fg cyan
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+# highlight active window
+set-window-option -g window-status-current-bg red
+
+# show some useful stats
+set -g status-left "[#[fg=green] #H #[default]]"
+set -g status-left-length 60
+
+# auto rename tabs
+set -g automatic-rename
+
+# Key Bindings
+
+# bind key for last active window
+bind-key C-a last-window
+
 # horizontal/vertical splits
 unbind %
 bind - split-window -v
@@ -36,7 +73,7 @@ bind k select-pane -U
 bind l select-pane -R
 
 # Resize panes by two lines
-bind < resize-pane -L 2
-bind > resize-pane -R 2
+bind < resize-pane -L 5
+bind > resize-pane -R 5
 bind - resize-pane -D 2
 bind + resize-pane -U 2
