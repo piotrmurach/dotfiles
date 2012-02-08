@@ -17,13 +17,14 @@ set shiftwidth=2     " I like 2 spaces for indenting
 set tabstop=2        " Set 2 stops
 set expandtab        " Spaces instead of tabs
 set autoindent       " Always set autoindenting on
-set smartcase        " Ignore cases when searching
-set showmatch        " Show matching parenthesis
 set wrap             " Turn on line wrapping.
 set visualbell       " No beeping.
 set listchars=tab:»·,trail:· " Enable list/listchars
 set list
 set incsearch        " Highlight matches as you type.
+set smartcase        " Ignore cases when searching
+set showmatch        " Show matching parenthesis
+set hlsearch         " Show all matches
 set lazyredraw       " Do not redraw while running macros
 set enc=utf-8        " Enable unicode support
 " set foldmethod=indent " Folds up text based on indent
