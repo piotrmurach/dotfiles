@@ -42,6 +42,9 @@ syntax enable        " Turn on syntax highlightning
 set background=dark
 colorscheme desert   " Pick current color scheme
 
+" Clear the search bugger when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
 " Mappings for often mistyped :w as :W
 nmap :W :w
 nmap :W! :w!
