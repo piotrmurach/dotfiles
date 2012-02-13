@@ -16,12 +16,13 @@ thor dotfiles:install
 ```
 thor list                     # Lists all available tasks
 thor dotfiles:base:install    # This will setup all files
+thor dotfiles:base:update     # Pulls recent changes and updates modules
 ```
 
 ### Ruby
 ```
-thor dotfiles:ruby:install   # Installs specific ruby and irb extensions
-thor dotfiles:ruby:install   # Uninstalls specific ruby and irb extensions
+thor dotfiles:ruby:install [FILE]    # Installs specific ruby and irb extensions
+thor dotfiles:ruby:uninstall [FILE]  # Uninstalls specific ruby and irb extensions
 ```
 
 ### Vim
@@ -29,25 +30,28 @@ thor dotfiles:ruby:install   # Uninstalls specific ruby and irb extensions
 Related vim tasks are scoped by vim namespace.
 
 ```
-thor dotfiles:vim:install          # Installs all vim goodness
+thor dotfiles:vim:install [FILE]   # Installs all vim goodness or specific component
 thor dotfiles:vim:add 'git-repo'   # Install vim component
 thor dotfiles:vim:rm  'git-repo'   # Uninstall vim component
 thor dotfiles:vim:list             # List currently installed components
 thor dotfiles:vim:update           # Updates all the components to the lastest
 ```
 
+### Git
+
+```
+thor dotfiles:git:install [FILE]   # Installs all or specific git file
+thor dotfiles:git:uninstall [FILE] # Uninstalls all or specific git file
+thor dotfiles:git:add [URL]        # Adds new git component
+thor dotfiles:git:rm [URL]         # Removes git component
+```
+
 ### RVM
 
-Install rvm from source
-
 ```
-thor dotfiles:rvm:install
-```
+thor dotfiles:rvm:install  # Install rvm from source
+thor dotfiles:rvm:update   # Update your version of rvm
 
-Update your version of rvm
-
-```
-thor dotfiles:rvm:update
 ```
 
 ## Environment
