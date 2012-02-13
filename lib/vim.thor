@@ -30,7 +30,7 @@ module Dotfiles
       end
 
       def plugin_installed? url
-        plugins.include? url
+        plugins.any? { |plugin| /#{url}/.match(plugin) }
       end
 
       def update_docs
