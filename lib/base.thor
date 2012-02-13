@@ -30,6 +30,16 @@ module Dotfiles
         system("which #{name}")
       end
 
+      def ignore_submodule name
+        insert_into_file "#{root}/.gitmodules", "\n  ignore = untracked",
+          :after => /.*url.*#{name}.*$/,
+          :force => true
+      end
+
+      def remove_git_module name, path
+        remove_dir "#{root}/.git/modules/#{path}"
+      end
+
       # Set source root for all subclasses
       def self.inherited base
         super

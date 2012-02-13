@@ -58,3 +58,6 @@
 [submodule "git/meld"]
 	path = git/meld
 	url = git://git.gnome.org/meld
+[submodule "vim/vim.link/bundle/vim-colors-solarized"]
+	path = vim/vim.link/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
