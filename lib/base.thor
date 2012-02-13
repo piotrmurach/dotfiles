@@ -120,6 +120,14 @@ module Dotfiles
       end
     end
 
+    desc 'update', 'Updates all dotfiles and modules'
+    def update
+      say "Updating .dotfiles", :green
+      run 'git pull -q'
+      invoke 'dotfiles:vim:update'
+      say "Updated", :green
+    end
+
     desc 'brew', 'Installs homebrew package manager'
     def brew
       say "Installing homebrew for #{user}", :green
