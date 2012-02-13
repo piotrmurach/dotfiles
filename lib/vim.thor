@@ -5,7 +5,7 @@ module Dotfiles
   class Vim < Base
 
     no_tasks do
-      LINES_TO_REMOVE = 3
+      LINES_TO_REMOVE = 4
 
       def extract_plugin_name url
         url.split('/').last.gsub('.git', '')
@@ -17,6 +17,14 @@ module Dotfiles
         run "git submodule add #{url} vim/vim.link/bundle/#{name}"
         run 'git submodule init'
         run 'git submodule update'
+        ignore_submodule name
+      end
+
+      def remove_plugin url
+        name = extract_plugin_name url
+        run "git rm --cached #{root}/vim/vim.link/bundle/#{name}"
+        FileUtils.rm_rf "#{root}/vim/vim.link/bundle/#{name}"
+        FileUtils.rm_rf "#{root}/.git/modules/vim/vim.link/bundle/#{name}"
       end
 
       def plugins
@@ -86,13 +94,12 @@ module Dotfiles
     def rm(url)
       unless plugin_installed?(url)
         say "Plugin #{url} does not exists.", :red
+        return
       end
       say "Removing vim plugin #{url}", :red
 
       delete_git_module extract_plugin_name(url)
-      run "git rm --cached #{root}/vim/vim.link/bundle/#{extract_plugin_name(url)}"
-      FileUtils.rm_rf "#{root}/vim/vim.link/bundle/#{extract_plugin_name(url)}"
-
+      remove_plugin url
       save_plugins plugins.reject { |plug| plug.strip == url }
     end
 
