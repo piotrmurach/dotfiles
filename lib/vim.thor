@@ -63,7 +63,7 @@ module Dotfiles
       ].each do |cmd|
         run "#{cmd}"
       end
-      say "Plugins updated", :green
+      say "Vim plugins updated", :green
     end
 
     desc 'add [URL]', 'Adds a vim plugin'
