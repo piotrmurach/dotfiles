@@ -5,7 +5,7 @@ module Dotfiles
   class Git < Base
 
     no_tasks do
-      LINES_TO_REMOVE = 3
+      LINES_TO_REMOVE = 4
 
       def extract_module_name url
         url.split('/').last.gsub('.git', '')
@@ -17,6 +17,7 @@ module Dotfiles
         run "git submodule add #{url} git/#{name}"
         run 'git submodule init'
         run 'git submodule update'
+        ignore_submodule name
       end
 
       def delete_git_module name
