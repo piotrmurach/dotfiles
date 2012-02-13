@@ -1,63 +1,80 @@
 [submodule "vim/vim.link/bundle/vim-rails"]
 	path = vim/vim.link/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-cucumber"]
 	path = vim/vim.link/bundle/vim-cucumber
 	url = git://github.com/tpope/vim-cucumber.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-haml"]
 	path = vim/vim.link/bundle/vim-haml
 	url = git://github.com/tpope/vim-haml.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-endwise"]
 	path = vim/vim.link/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-unimpaired"]
 	path = vim/vim.link/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-markdown"]
 	path = vim/vim.link/bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-fugitive"]
 	path = vim/vim.link/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-rvm"]
 	path = vim/vim.link/bundle/vim-rvm
 	url = git://github.com/tpope/vim-rvm.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-bundler"]
 	path = vim/vim.link/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-surround"]
 	path = vim/vim.link/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/nerdtree"]
 	path = vim/vim.link/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/syntastic"]
 	path = vim/vim.link/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/tabular"]
 	path = vim/vim.link/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/snipmate.vim"]
 	path = vim/vim.link/bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/taglist.vim"]
 	path = vim/vim.link/bundle/taglist.vim
 	url = git://github.com/vim-scripts/taglist.vim.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/ack.vim"]
 	path = vim/vim.link/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/tslime.vim"]
 	path = vim/vim.link/bundle/tslime.vim
 	url = git://github.com/kikijump/tslime.vim.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-turbux"]
 	path = vim/vim.link/bundle/vim-turbux
 	url = git://github.com/jgdavey/vim-turbux.git
+  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-coffee-script"]
 	path = vim/vim.link/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+  ignore = untracked
 [submodule "git/meld"]
 	path = git/meld
 	url = git://git.gnome.org/meld
-[submodule "vim/vim.link/bundle/vim-colors-solarized"]
-	path = vim/vim.link/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+  ignore = untracked
