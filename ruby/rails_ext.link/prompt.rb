@@ -1,6 +1,6 @@
 # Extend rails irb prompt
 #
-if Rails.version >= "3"
+if defined?(Rails) && Rails.version >= "3"
  app_name = Rails.application.class.parent_name.downcase
  app_env  = Rails.env[0...3]
 
