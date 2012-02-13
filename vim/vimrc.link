@@ -37,6 +37,7 @@ set title            " Change the terminal's title
 set ttimeoutlen=50   " Make Esc work faster
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set laststatus=2     " Always show status line
+set cursorline       " Highlight the current line
 
 syntax enable        " Turn on syntax highlightning
 set background=dark
