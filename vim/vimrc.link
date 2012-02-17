@@ -27,7 +27,6 @@ set showmatch        " Show matching parenthesis
 set hlsearch         " Show all matches
 set lazyredraw       " Do not redraw while running macros
 set enc=utf-8        " Enable unicode support
-" set foldmethod=indent " Folds up text based on indent
 set history=1000     " Remember more command and search history
 set undolevels=1000
 set wildmenu         " Make tab completion for files/buffers act like bash
@@ -38,6 +37,14 @@ set ttimeoutlen=50   " Make Esc work faster
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set laststatus=2     " Always show status line
 set cursorline       " Highlight the current line
+
+" Folding
+set foldenable        " Turn on folding
+set foldmethod=syntax " Usefull options: indent, syntax, marker, expr
+set foldcolumn=1      " Creates a smalll left-hand gutter for displaying fold info
+set foldlevel=100
+hi Folded cterm=bold ctermfg=grey ctermbg=none
+hi FoldColumn cterm=bold ctermfg=grey ctermbg=none
 
 syntax enable        " Turn on syntax highlightning
 set background=dark
