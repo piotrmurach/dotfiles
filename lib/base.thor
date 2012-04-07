@@ -9,6 +9,8 @@ module Dotfiles
 
     class_option :linkable_path, :type => :string
 
+    TOOLS = [ 'ack', 'zsh', 'tmux', 'grc', 'irssi' ]
+
     no_tasks do
 
       def root
@@ -157,13 +159,11 @@ module Dotfiles
     desc 'toolbox', 'Installs essential tools using homebrew'
     method_option :force, :type => :boolean, :aliases => "-f", :default => false
     def toolbox
-      [
-        'ack',
-        'zsh',
-        'tmux',
-        'grc',
-        'irssi'
-      ].each do |tool|
+      if check_presence('brew') && !options[:force]
+        say "Installing brew for #{user}", :green
+        invoke "dotfiles:brew"
+      end
+      TOOLS.each do |tool|
         if check_presence(tool) && !options[:force]
           say "#{tool} is already installed, skipping. Run task with -f to force", :red
         else
