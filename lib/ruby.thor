@@ -1,9 +1,10 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Ruby < Base
     include Thor::Actions
+
+    namespace :ruby
 
     desc 'install [FILE]', 'Installs all ruby & irb files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
@@ -18,5 +19,4 @@ module Dotfiles
     end
 
   end # Ruby
-
 end # Dotfiles

@@ -1,8 +1,9 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Rvm < Base
+
+    namespace :rvm
 
     desc 'setup', 'Installs RVM'
     def setup
@@ -17,5 +18,4 @@ module Dotfiles
     end
 
   end # Rvm
-
 end # Dotfiles

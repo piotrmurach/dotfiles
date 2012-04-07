@@ -1,8 +1,9 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Vim < Base
+
+    namespace :vim
 
     no_tasks do
       LINES_TO_REMOVE = 4
@@ -134,5 +135,4 @@ module Dotfiles
     end
 
   end # Vim
-
 end # Dotfiles

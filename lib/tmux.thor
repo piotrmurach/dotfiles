@@ -1,8 +1,9 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Tmux < Base
+
+    namespace :tmux
 
     desc 'setup', 'Installs Tmux'
     method_option :force, :type => :boolean, :aliases => "-f", :default => false
@@ -28,5 +29,4 @@ module Dotfiles
     end
 
   end # Git
-
 end # Dotfiles

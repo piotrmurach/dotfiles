@@ -1,10 +1,11 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Base < Thor
     include Thor::Actions
     Thor::Sandbox::Dotfiles::Base.source_root File.expand_path('../..', __FILE__)
+
+    namespace :dotfiles
 
     class_option :linkable_path, :type => :string
 
@@ -47,6 +48,9 @@ module Dotfiles
         base.source_root
       end
 
+      def render_and_link_file()
+      
+      end
     end
 
     desc 'install [PATH]', 'Hook dotfiles into system-standard positions.'
@@ -169,5 +173,4 @@ module Dotfiles
       end
     end
   end # Base
-
 end # Dotfiles

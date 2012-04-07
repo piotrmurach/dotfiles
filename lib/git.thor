@@ -1,8 +1,9 @@
 #!/user/bin/ruby
 
 module Dotfiles
-
   class Git < Base
+
+    namespace :git
 
     no_tasks do
       LINES_TO_REMOVE = 4
@@ -75,5 +76,4 @@ module Dotfiles
     end
 
   end # Git
-
 end # Dotfiles
