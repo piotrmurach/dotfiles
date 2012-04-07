@@ -14,15 +14,15 @@ thor dotfiles:install
 ## Usage
 
 ```
-thor list                     # Lists all available tasks
-thor dotfiles:base:install    # This will setup all files
-thor dotfiles:base:update     # Pulls recent changes and updates modules
+thor list                # Lists all available tasks
+thor dotfiles:install    # This will setup all dot files in home directory
+thor dotfiles:update     # Pulls recent changes and updates modules
 ```
 
 ### Ruby
 ```
-thor dotfiles:ruby:install [FILE]    # Installs specific ruby and irb extensions
-thor dotfiles:ruby:uninstall [FILE]  # Uninstalls specific ruby and irb extensions
+thor ruby:install [FILE]    # Installs specific ruby and irb extensions
+thor ruby:uninstall [FILE]  # Uninstalls specific ruby and irb extensions
 ```
 
 ### Vim
@@ -30,27 +30,27 @@ thor dotfiles:ruby:uninstall [FILE]  # Uninstalls specific ruby and irb extensio
 Related vim tasks are scoped by vim namespace.
 
 ```
-thor dotfiles:vim:install [FILE]   # Installs all vim goodness or specific component
-thor dotfiles:vim:add 'git-repo'   # Install vim component
-thor dotfiles:vim:rm  'git-repo'   # Uninstall vim component
-thor dotfiles:vim:list             # List currently installed components
-thor dotfiles:vim:update           # Updates all the components to the lastest
+thor vim:install [FILE]   # Installs all vim goodness or specific component
+thor vim:add 'git-repo'   # Install vim component
+thor vim:rm  'git-repo'   # Uninstall vim component
+thor vim:list             # List currently installed components
+thor vim:update           # Updates all the components to the lastest
 ```
 
 ### Git
 
 ```
-thor dotfiles:git:install [FILE]   # Installs all or specific git file
-thor dotfiles:git:uninstall [FILE] # Uninstalls all or specific git file
-thor dotfiles:git:add [URL]        # Adds new git component
-thor dotfiles:git:rm [URL]         # Removes git component
+thor git:install [FILE]   # Installs all or specific git file
+thor git:uninstall [FILE] # Uninstalls all or specific git file
+thor git:add [URL]        # Adds new git component
+thor git:rm [URL]         # Removes git component
 ```
 
 ### RVM
 
 ```
-thor dotfiles:rvm:install  # Install rvm from source
-thor dotfiles:rvm:update   # Update your version of rvm
+thor rvm:install  # Install rvm from source
+thor rvm:update   # Update your version of rvm
 
 ```
 
