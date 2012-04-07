@@ -2,4 +2,12 @@
 #
 # Undo your last commit, but don't throw away your changes
 
-git reset --soft HEAD^
+if test $# -eq 0; then
+  git reset --soft HEAD^
+else
+  if `echo $1 | grep -q [^[:digit:]]`; then
+    echo "$1 is not a number" 1>&2
+  else
+    git reset --soft HEAD~$1
+  fi
+fi
