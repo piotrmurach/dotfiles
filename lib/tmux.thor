@@ -16,17 +16,17 @@ module Dotfiles
       end
     end
 
-    desc 'install', 'Installs all git files, saves your old files and symlinks new ones.'
+    desc 'install', 'Installs all tmux files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
     def install
       invoke "dotfiles:base:install", [], :linkable_path => File.join('**','tmux','*.{link}')
     end
 
-    desc 'uninstall', 'Uninstalls all git files, reverts back all backups.'
+    desc 'uninstall', 'Uninstall all tmux files, reverts back all backups.'
     method_options :foce => :boolean
     def uninstall
-      invoke "dotfiles:base:uninstall", [], :linkable_path => File.join('**','tmux','*.{link}')
+      invoke "dotfiles:uninstall", [], :linkable_path => File.join('**','tmux','*.{link}')
     end
 
-  end # Git
+  end # Tmux
 end # Dotfiles
