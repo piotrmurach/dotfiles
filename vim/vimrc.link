@@ -8,8 +8,7 @@ set nocompatible
 " Pathogen runtime path manipulation, all plugin paths stored in runtimepath
 call pathogen#infect()
 
-let mapleader=","    " Change the mapleader from \ to ,
-
+" System-wide setup
 set number           " Show line numbers.
 set showmode         " Show what mode we are currently in
 set ruler            " Show cursor position.
@@ -29,17 +28,22 @@ set lazyredraw       " Do not redraw while running macros
 set enc=utf-8        " Enable unicode support
 set history=1000     " Remember more command and search history
 set undolevels=1000
-set wildmenu         " Make tab completion for files/buffers act like bash
-set wildmode=list:full "Show a list when pressing tab, and complete first match
 set hidden           " Hide buffers instead of closing them
 set title            " Change the terminal's title
 set ttimeoutlen=50   " Make Esc work faster
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set laststatus=2     " Always show status line
 set cursorline       " Highlight the current line
+set shiftround       " Round spaces motions
+
+" Completion
+set wildmenu         " Make tab completion for files/buffers act like bash
+set wildmode=list:longest,full "Show a list when pressing tab, and complete first match
+set wildignore+=*.swp,*.zip,*.jpg,*.gif,*.png,*.tar,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+set completeopt=menu,menuone,longest,preview
 
 " Folding
-set foldenable        " Turn on folding
+set nofoldenable      " Turn off folding
 set foldmethod=syntax " Usefull options: indent, syntax, marker, expr
 set foldcolumn=1      " Creates a smalll left-hand gutter for displaying fold info
 set foldlevel=100
@@ -52,6 +56,9 @@ colorscheme desert   " Pick current color scheme
 
 " Clear the search bugger when hitting return
 :nnoremap <CR> :nohlsearch<cr>
+
+" Mappings
+let mapleader=","    " Change the mapleader from \ to ,
 
 " Mappings for often mistyped :w as :W
 nmap :W :w
@@ -70,6 +77,33 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+
+" Shortcuts for Rails commands
+map <leader>rm :Rmodel<space>
+map <leader>rc :Rcontroller<space>
+map <leader>rv :Rview<space>
+map <leader>rh :Rhelper<space>
+map <leader>rs :Rspec<space>
+map <leader>ri :Rinitializer<space>
+map <leader>rj :Rjavascript<space>
+map <leader>ry :Rstylesheet<space>
+map <leader>rl :Rlayout<space>
+map <leader>rm :Rmigration<space>
+map <leader>re :Rextract<space>
+map <leader>sc :sp db/schema.rb<cr>
+map <leader>t :NERDTree<cr>
+
+" Shortcuts for alignment
+if exists(":Tabularize")
+  nmap <leader>a= :Tabularize /=<cr>
+  vmap <leader>a= :Tabularize /=<cr>
+  nmap <leader>a: :Tabularize /:\zs<cr>
+  vmap <leader>a: :Tabularize /:\zs<cr>
+endif
+
+" Shortcuts for git
+map <leader>gs :Gstatus<cr>
+map <leader>gc :Gcommit -m ""<left>
 
 " Shortcuts for moving between tabs.
 
