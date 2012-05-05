@@ -77,6 +77,8 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+map <leader>[  :tabprevious<cr>
+map <leader>]  :tabnext<cr>
 
 " Shortcuts for Rails commands
 autocmd User Rails Rnavcommand step   features/step_definitions -glob=**/* -suffix=_steps.rb
@@ -96,7 +98,7 @@ map <leader>mi :Rmigration<space>
 map <leader>re :Rextract<space>
 map <leader>rp :Rstep<cr>
 map <leader>sc :sp db/schema.rb<cr>
-map <leader>t :NERDTree<cr>
+map <leader>n  :NERDTreeToggle<cr>
 
 " Shortcuts for Backbone.js
 autocmd User Rails Rnavcommand template    app/assets/templates                -glob=**/* -suffix=.jst.ejs
@@ -117,6 +119,8 @@ map <leader>js :Rjspec<space>
 if exists(":Tabularize")
   nmap <leader>a= :Tabularize /=<cr>
   vmap <leader>a= :Tabularize /=<cr>
+  nmap <leader>a= :Tabularize /{<cr>
+  vmap <leader>a= :Tabularize /{<cr>
   nmap <leader>a: :Tabularize /:\zs<cr>
   vmap <leader>a: :Tabularize /:\zs<cr>
 endif
