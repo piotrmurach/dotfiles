@@ -1,6 +1,6 @@
 " This is vimrc for vim/gvim
 " This file contains main configuration settings
-" to aid in comfortable and prodactive programming
+" to aid in comfortable and productive programming
 " written by Piotr Murach
 
 set nocompatible
@@ -79,6 +79,10 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Shortcuts for Rails commands
+autocmd User Rails Rnavcommand step   features/step_definitions -glob=**/* -suffix=_steps.rb
+autocmd User Rails Rnavcommand config config                    -glob=**/* -default=routes
+command! Rroutes :e config/routes.rb
+
 map <leader>rm :Rmodel<space>
 map <leader>rc :Rcontroller<space>
 map <leader>rv :Rview<space>
@@ -88,10 +92,26 @@ map <leader>ri :Rinitializer<space>
 map <leader>rj :Rjavascript<space>
 map <leader>ry :Rstylesheet<space>
 map <leader>rl :Rlayout<space>
-map <leader>rm :Rmigration<space>
+map <leader>mi :Rmigration<space>
 map <leader>re :Rextract<space>
+map <leader>rp :Rstep<cr>
 map <leader>sc :sp db/schema.rb<cr>
 map <leader>t :NERDTree<cr>
+
+" Shortcuts for Backbone.js
+autocmd User Rails Rnavcommand template    app/assets/templates                -glob=**/* -suffix=.jst.ejs
+autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models       -glob=**/* -suffix=.coffee
+autocmd User Rails Rnavcommand jview       app/assets/javascripts/views        -glob=**/* -suffix=.coffee
+autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections  -glob=**/* -suffix=.coffee
+autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers      -glob=**/* -suffix=.coffee
+autocmd User Rails Rnavcommand jspec       spec/javascripts                    -glob=**/* -suffix=.coffee
+
+map <leader>jt :Rtemplate<space>
+map <leader>jm :Rjmodel<space>
+map <leader>jv :Rjview<space>
+map <leader>jc :Rjcollection<space>
+map <leader>jr :Rjrouter<space>
+map <leader>js :Rjspec<space>
 
 " Shortcuts for alignment
 if exists(":Tabularize")
