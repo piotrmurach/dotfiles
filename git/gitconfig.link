@@ -1,10 +1,13 @@
 [user]
   name = Piotr Murach
 [alias]
-  co = checkout
-  br = branch
+  b  = branch -v
   ci = commit
+  co = checkout
   st = status
+  ss = stash
+  sl = stash list
+  sa = stash apply
   unstage = reset HEAD --
   last = log -1 HEAD
   visual = gitk
@@ -18,6 +21,7 @@
   amend = commit --amend
   aa = add --all
   oneline = log --pretty=oneline
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 [core]
   editor = vim -f
   autocrlf = input
