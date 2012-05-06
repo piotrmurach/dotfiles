@@ -129,6 +129,18 @@ endif
 map <leader>gs :Gstatus<cr>
 map <leader>gc :Gcommit -m ""<left>
 
+" Auto commands
+if has("autocmd")
+  " Include these in an autocmd group for easiy delition
+  augroup vimrcEx
+    " Jump to last cursor position
+    autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal g`\"" |
+            \ endif
+  augroup END
+endif
+
 " Shortcuts for moving between tabs.
 
 " Scripts
