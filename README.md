@@ -17,6 +17,8 @@ thor dotfiles:install
 thor list                # Lists all available tasks
 thor dotfiles:install    # This will setup all dot files in home directory
 thor dotfiles:update     # Pulls recent changes and updates modules
+thor dotfiles:toolbox    # Installs essential tools using homebrew
+thor dotfiles:update     # Syncs dotfiles with the the github repository
 ```
 
 ### Ruby
@@ -51,7 +53,6 @@ thor git:rm [URL]         # Removes git component
 ```
 thor rvm:install  # Install rvm from source
 thor rvm:update   # Update your version of rvm
-
 ```
 
 ## Environment
