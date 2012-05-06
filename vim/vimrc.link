@@ -99,6 +99,8 @@ map <leader>re :Rextract<space>
 map <leader>rp :Rstep<cr>
 map <leader>sc :sp db/schema.rb<cr>
 map <leader>n  :NERDTreeToggle<cr>
+map <leader>o :call RunCurrentLineInTest()<cr>
+map <leader>y :call RunCurrentTest()<cr>
 
 " Shortcuts for Backbone.js
 autocmd User Rails Rnavcommand template    app/assets/templates                -glob=**/* -suffix=.jst.ejs
@@ -150,3 +152,22 @@ endif
 " Shortcuts for moving between tabs.
 
 " Scripts
+
+function! CorrectTestRunner()
+  if expand('%') =~# '\.feature$'
+    return "cucumber"
+  elseif expand('%') =~# '_spec\.rb$'
+    return "rspec"
+  else
+    return "ruby -Itest"
+  endif
+endfunction
+
+function! RunCurrentTest()
+  exec "!" . CorrectTestRunner() expand('%:p')
+endfunction
+
+function! RunCurrentLineInTest()
+  exec "!" . CorrectTestRunner() expand('%:p') . ":" . line(".")
+endfunction
+
