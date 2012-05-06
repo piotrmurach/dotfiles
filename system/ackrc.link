@@ -1,5 +1,13 @@
+# Remove Rails dirs
+--ignore-dir=tmp
+--ignore-dir=coverage
+--ignore-dir=log
+--ignore-dir=vendor
+
 # Add HAML and Selenium to ruby list
 --type-add=ruby=.haml,.rake,.rsel
+--type-add=html=.html.erb,.html.haml
+--type-add=css=.sass,.less,.scss
 --type-set=rdoc=.rdoc,.yardoc,.sdoc
 
 # Sort found files lexically
