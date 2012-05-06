@@ -126,8 +126,14 @@ if exists(":Tabularize")
 endif
 
 " Shortcuts for git
-map <leader>gs :Gstatus<cr>
+map <leader>ga :Gadd<cr>
+map <leader>gb :Gblame<cr>
 map <leader>gc :Gcommit -m ""<left>
+map <leader>gd :Gdiff<cr>
+map <leader>gm :Gmove<cr>
+map <leader>gr :Gremove<cr>
+map <leader>gs :Gstatus<cr>
+map <leader>gw :Gwrite<cr>
 
 " Auto commands
 if has("autocmd")
