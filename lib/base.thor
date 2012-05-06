@@ -140,7 +140,7 @@ module Dotfiles
     def update
       say "Updating .dotfiles", :green
       run 'git pull -q'
-      invoke 'dotfiles:vim:update'
+      invoke 'vim:update'
       say "Updated", :green
     end
 
