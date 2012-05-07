@@ -121,8 +121,8 @@ map <leader>js :Rjspec<space>
 if exists(":Tabularize")
   nmap <leader>a= :Tabularize /=<cr>
   vmap <leader>a= :Tabularize /=<cr>
-  nmap <leader>a= :Tabularize /{<cr>
-  vmap <leader>a= :Tabularize /{<cr>
+  nmap <leader>a{ :Tabularize /{<cr>
+  vmap <leader>a{ :Tabularize /{<cr>
   nmap <leader>a: :Tabularize /:\zs<cr>
   vmap <leader>a: :Tabularize /:\zs<cr>
 endif
@@ -155,7 +155,7 @@ endif
 
 function! CorrectTestRunner()
   if expand('%') =~# '\.feature$'
-    return "cucumber"
+    return "cucumber -r features"
   elseif expand('%') =~# '_spec\.rb$'
     return "rspec"
   else
