@@ -5,8 +5,6 @@ module Dotfiles
     include Thor::Actions
     Thor::Sandbox::Dotfiles::Base.source_root File.expand_path('../..', __FILE__)
 
-    namespace :dotfiles
-
     class_option :linkable_path, :type => :string
 
     TOOLS = [ 'ack', 'zsh', 'tmux', 'grc', 'irssi' ]
@@ -19,6 +17,10 @@ module Dotfiles
 
       def user
         @user = %x["whoami"].chomp
+      end
+
+      def user_home
+        Thor::Util.user_home
       end
 
       def define_linkable_dir &block

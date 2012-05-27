@@ -108,7 +108,7 @@ module Dotfiles
     method_options :force => :boolean
     def pathogen
       say 'Installing pathogen...', :green
-      if File.exists?("#{root}/vim/vim.link/autoload/pathogen.vim") && !options[:force]
+      if File.exists?("#{user_home}/.vim/autoload/pathogen.vim") && !options[:force]
         return unless yes? 'Pathogen already installed, do you want to overwrite'
       end
       url = "https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim"
@@ -130,7 +130,7 @@ module Dotfiles
     desc 'list', 'List currently installed extensions.'
     def list
       plugins.each do |plugin|
-        say plugin, :yellow
+        say plugin, :green
       end
     end
 
