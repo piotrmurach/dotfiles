@@ -137,6 +137,13 @@ map <leader>gr :Gremove<cr>
 map <leader>gs :Gstatus<cr>
 map <leader>gw :Gwrite<cr>
 
+" Begin searching with ack
+map <leader>f :Ack<space>
+
+" No more accidents with Help
+nmap <F1> <Esc>
+map! <F1> <Esc>
+
 " Auto commands
 if has("autocmd")
   " Include these in an autocmd group for easiy delition
@@ -146,6 +153,12 @@ if has("autocmd")
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   exe "normal g`\"" |
             \ endif
+  augroup END
+
+  augroup myfiletypes
+    " treat rackup files like ruby
+    au BufRead,BufNewFile *.ru set ft=ruby
+    au BufRead,BufNewFile Gemfile set ft=ruby
   augroup END
 endif
 
