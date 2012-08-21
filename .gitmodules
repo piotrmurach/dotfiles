@@ -78,3 +78,7 @@
 	path = git/meld
 	url = git://git.gnome.org/meld
   ignore = untracked
+[submodule "system/z"]
+	path = system/z
+	url = https://github.com/rupa/z.git
+  ignore = untracked
