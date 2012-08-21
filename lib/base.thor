@@ -7,9 +7,14 @@ module Dotfiles
 
     class_option :linkable_path, :type => :string
 
+    namespace :dotfiles
+
     TOOLS = [ 'ack', 'zsh', 'tmux', 'grc', 'irssi' ]
 
     no_tasks do
+      include ::Submodules
+
+      # System properties
 
       def root
         File.dirname(__FILE__)
@@ -23,37 +28,25 @@ module Dotfiles
         Thor::Util.user_home
       end
 
-      def define_linkable_dir &block
+      def define_linkable_dir(&block)
         @linkables = block.call
       end
 
-      def extract_symlink_name path
+      def extract_symlink_name(path)
         path.split('/').last.gsub('.link','')
       end
 
-      def check_presence name
+      def check_presence(name)
         system("which #{name}")
-      end
-
-      def ignore_submodule name
-        insert_into_file "#{root}/.gitmodules", "\n  ignore = untracked",
-          :after => /.*url.*#{name}.*$/,
-          :force => true
-      end
-
-      def remove_git_module name, path
-        remove_dir "#{root}/.git/modules/#{path}"
       end
 
       # Set source root for all subclasses
       def self.inherited base
         super
-
         base.source_root
       end
 
       def render_and_link_file()
-      
       end
     end
 
