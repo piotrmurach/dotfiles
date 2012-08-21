@@ -19,7 +19,7 @@ module Dotfiles
     desc 'install', 'Installs all tmux files, saves your old files and symlinks new ones.'
     method_options :force => :boolean
     def install
-      invoke "dotfiles:base:install", [], :linkable_path => File.join('**','tmux','*.{link}')
+      invoke "dotfiles:install", [], :linkable_path => File.join('**','tmux','*.{link}')
     end
 
     desc 'uninstall', 'Uninstall all tmux files, reverts back all backups.'
