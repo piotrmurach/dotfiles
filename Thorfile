@@ -1,6 +1,7 @@
 #!/user/bin/ruby
 
 require 'fileutils'
+require './lib/submodules'
 
 module Dotfiles
 
