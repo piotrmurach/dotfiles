@@ -1,30 +1,37 @@
 [user]
   name = Piotr Murach
 [alias]
+  amend = commit --amend
+  a  = add
+  aa = add --all
   b  = branch -v
+  br = branch
   ci = commit
   co = checkout
+  cp = cherry-pick
+  di = diff
+  dc = diff --cached
   st = status
   ss = stash
   sl = stash list
   sa = stash apply
   unstage = reset HEAD --
+  pom = push origin master
+  pullff = pull --ff-only
+  type = cat-file -t
+  dump = cat-file -p
+  hist = log --pretty=format:'%Cred%h%Creset %Cgreen(%ad)%Creset | %s%d [%C(yellow)%an%Creset]' --graph --date=short
   last = log -1 HEAD
-  visual = gitk
-  di = diff
-  dc = diff --cached
   list = log --graph --abbrev-commit --date=relative
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   l = log --name-status --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  pom = push origin master
-  pullff = pull --ff-only
-  amend = commit --amend
-  aa = add --all
   oneline = log --pretty=oneline
   today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  visual = gitk
 [core]
-  editor = vim -f
+  editor = /usr/bin/vim
   autocrlf = input
+  safecrlf = true
 [color]
   ui = true
 [merge]
