@@ -21,10 +21,13 @@
   type = cat-file -t
   dump = cat-file -p
   hist = log --pretty=format:'%Cred%h%Creset %Cgreen(%ad)%Creset | %s%d [%C(yellow)%an%Creset]' --graph --date=short
+  l = "!source ~/.githelpers && pretty_git_log"
+  la = !git l --all
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   last = log -1 HEAD
   list = log --graph --abbrev-commit --date=relative
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  l = log --name-status --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  r = !git l -30
+  ra = !git r --all
   oneline = log --pretty=oneline
   today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
   visual = gitk
