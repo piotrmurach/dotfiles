@@ -134,9 +134,8 @@ module Dotfiles
     desc 'update', 'Updates all dotfiles and modules'
     def update
       say "Updating .dotfiles", :green
-      run 'git pull -q'
-      invoke 'vim:update'
-      say "Updated", :green
+      run "git pull -q"
+      update_submodules
     end
 
     desc 'modules', 'Display available modules'
