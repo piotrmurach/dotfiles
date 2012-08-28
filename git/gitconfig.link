@@ -33,7 +33,7 @@
   visual = gitk
 [core]
   editor = /usr/bin/vim
-  autocrlf = input
+  autocrlf = false
   safecrlf = true
 [color]
   ui = true

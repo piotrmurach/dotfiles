@@ -2,7 +2,6 @@
 
 module Dotfiles
   class Ruby < Base
-    include Thor::Actions
 
     namespace :ruby
 
