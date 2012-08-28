@@ -139,6 +139,11 @@ module Dotfiles
       say "Updated", :green
     end
 
+    desc 'modules', 'Display available modules'
+    def modules
+      status
+    end
+
     desc 'brew', 'Installs homebrew package manager'
     def brew
       say "Installing homebrew for #{user}", :green

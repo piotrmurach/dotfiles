@@ -93,4 +93,10 @@ module Submodules
     say "Git submodules successfully updated", :green
   end
 
+  # Shows available submodules
+  #
+  def status
+    run "git submodule status"
+  end
+
 end # Submodules
