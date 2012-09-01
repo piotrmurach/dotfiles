@@ -9,7 +9,9 @@ module Dotfiles
 
     namespace :dotfiles
 
-    TOOLS = [ 'ack', 'zsh', 'tmux', 'grc', 'irssi' ]
+    TOOLS = [
+      'ack', 'zsh', 'tmux', 'grc', 'irssi'
+    ]
 
     no_tasks do
       include ::Submodules
@@ -155,9 +157,9 @@ module Dotfiles
       run "curl https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg > GCC-10.6.pkg"
     end
 
-    desc 'toolbox', 'Installs essential tools using homebrew'
+    desc 'tools', 'Installs essential tools using homebrew'
     method_option :force, :type => :boolean, :aliases => "-f", :default => false
-    def toolbox
+    def tools(tool=nil)
       if check_presence('brew') && !options[:force]
         say "Installing brew for #{user}", :green
         invoke "dotfiles:brew"

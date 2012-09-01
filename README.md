@@ -21,7 +21,7 @@ To setup all dotfiles do `thor dotfiles:install` or pick and choose.
 thor list                # Lists all available tasks
 thor dotfiles:install    # This will setup all dot files in home directory
 thor dotfiles:modules    # Displays available modules
-thor dotfiles:toolbox    # Installs essential tools using homebrew
+thor dotfiles:tools      # Installs essential tools using homebrew
 thor dotfiles:update     # Syncs dotfiles with the github HEAD and update submodules
 ```
 
