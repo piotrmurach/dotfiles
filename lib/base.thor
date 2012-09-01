@@ -134,7 +134,7 @@ module Dotfiles
     desc 'update', 'Updates all dotfiles and modules'
     def update
       say "Updating .dotfiles", :green
-      run "git pull -q"
+      run "git pull --recurse-submodules"
       update_submodules
     end
 
