@@ -58,6 +58,10 @@ set -g automatic-rename
 
 # bind key for last active window
 bind-key C-a last-window
+# bind key for idicator of each pane
+bind-key w display-panes
+
+bind R source-file ~/.tmux.conf ; display 'RELOADED!'
 
 # horizontal/vertical splits
 unbind %
@@ -73,7 +77,7 @@ bind k select-pane -U
 bind l select-pane -R
 
 # Resize panes by two lines
-bind < resize-pane -L 5
-bind > resize-pane -R 5
-bind - resize-pane -D 2
-bind + resize-pane -U 2
+bind -r < resize-pane -L 7
+bind -r > resize-pane -R 7
+bind -r + resize-pane -U 20
+bind -r - resize-pane -D 20
