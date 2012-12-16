@@ -39,6 +39,7 @@ set laststatus=2     " Always show status line
 set cursorline       " Highlight the current line
 set shiftround       " Round spaces motions
 set noesckeys        " Get rid of the delay when hitting esc
+set nrformats=       " Treat numerals as decimal
 
 " Completion
 set wildmenu         " Make tab completion for files/buffers act like bash
@@ -145,6 +146,7 @@ map <leader>gm :Gmove<cr>
 map <leader>gr :Gremove<cr>
 map <leader>gs :Gstatus<cr>
 map <leader>gw :Gwrite<cr>
+vmap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " Begin searching with ack
 map <leader>f :Ack<space>
@@ -152,6 +154,8 @@ map <leader>f :Ack<space>
 " No more accidents with Help
 nmap <F1> <Esc>
 map! <F1> <Esc>
+
+map %/ <C-R>=expand("%:p:h")."/"<cr>
 
 " Auto commands
 if has("autocmd")
