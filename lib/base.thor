@@ -19,7 +19,7 @@ module Dotfiles
       # System properties
 
       def root
-        File.dirname(__FILE__)
+        File.expand_path('../..', __FILE__)
       end
 
       def user
@@ -52,7 +52,7 @@ module Dotfiles
       end
     end
 
-    desc 'install [PATH]', 'Hook dotfiles into system-standard positions.'
+    desc 'install [PATH]', 'Hook dotfiles into system-standard positions. Defaults to user home directory.'
     method_option :skip_all, :type => :boolean, :aliases => "-s",
                   :default => :false,
                   :desc => "Skip dotfiles that already exist"
@@ -118,15 +118,17 @@ module Dotfiles
         Dir.glob('*/**{.link}')
       end
 
+      home_dir = File.expand_path("~#{user}")
+
       linkables.each do |linkable|
         file = extract_symlink_name linkable
-        target = "#{ENV['HOME']}/.#{file}"
+        target = "#{home_dir}/.#{file}"
 
         if File.exists?(target)
           FileUtils.rm(target)
         end
 
-        if File.exists?("#{ENV['HOME']}/.#{file}.backup")
+        if File.exists?("#{home_dir}/.#{file}.backup")
           say "Restoring file  #{file}", :yellow
           run 'mv "$HOME/.#{file}.backup" "$HOME/.#{file}"'
         end
