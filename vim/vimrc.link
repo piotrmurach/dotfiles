@@ -41,11 +41,16 @@ set cursorline       " Highlight the current line
 set shiftround       " Round spaces motions
 set noesckeys        " Get rid of the delay when hitting esc
 set nrformats=       " Treat numerals as decimal
+set synmaxcol=800    " Don't try to highlight lines longer than 800 chars
 
 " Completion
 set wildmenu         " Make tab completion for files/buffers act like bash
 set wildmode=list:longest,full "Show a list when pressing tab, and complete first match
-set wildignore+=*.swp,*.zip,*.jpg,*.gif,*.png,*.tar,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+set wildignore+=.git,.svn                     " Version control
+set wildignore+=*.zip,*.tar                   " Compressed files
+set wildignore+=*.avi,*.wmv,*.ogg,*.mp3,*.mov " Video files
+set wildignore+=*.jpg,*.gif,*.png             " Binary images
+set wildignore+=*.sw?                         " Vim swap files
 set completeopt=menu,menuone,longest,preview
 
 " Folding
