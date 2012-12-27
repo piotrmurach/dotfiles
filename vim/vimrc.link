@@ -89,6 +89,10 @@ nmap :WQ! :wq!
 nmap k gk
 nmap j gj
 
+" Editing
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Tab mappings
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
