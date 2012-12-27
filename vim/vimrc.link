@@ -22,6 +22,7 @@ set autoindent       " Always set autoindenting on
 set wrap             " Turn on line wrapping.
 set visualbell       " No beeping.
 set listchars=tab:»·,trail:· " Enable list/listchars
+set showbreak=↪      " Mark wrapped lines
 set list
 set incsearch        " Highlight matches as you type.
 set smartcase        " Ignore cases when searching
@@ -54,6 +55,12 @@ set foldcolumn=1      " Creates a smalll left-hand gutter for displaying fold in
 set foldlevel=100
 hi Folded cterm=bold ctermfg=grey ctermbg=none
 hi FoldColumn cterm=bold ctermfg=grey ctermbg=none
+
+augroup cline
+  au!
+  au WinLeave,InsertEnter * set nocursorline
+  au WinEnter,InsertLeave * set cursorline
+augroup END
 
 syntax enable        " Turn on syntax highlightning
 set background=dark
@@ -159,7 +166,7 @@ map %/ <C-R>=expand("%:p:h")."/"<cr>
 
 " Auto commands
 if has("autocmd")
-  " Include these in an autocmd group for easiy delition
+  " Include these in an autocmd group for easy delition
   augroup vimrcEx
     " Jump to last cursor position
     autocmd BufReadPost *
@@ -174,8 +181,6 @@ if has("autocmd")
     au BufRead,BufNewFile Gemfile set ft=ruby
   augroup END
 endif
-
-" Shortcuts for moving between tabs.
 
 """"""""""
 " Scripts
