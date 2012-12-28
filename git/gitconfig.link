@@ -7,6 +7,7 @@
   b  = branch -v
   br = branch
   ci = commit
+  cm = commit -m
   co = checkout
   cp = cherry-pick
   di = diff
@@ -16,6 +17,7 @@
   sl = stash list
   sa = stash apply
   unstage = reset HEAD --
+  uns = reset HEAD --
   pom = push origin master
   pullff = pull --ff-only
   type = cat-file -t
