@@ -86,6 +86,13 @@ nmap :WQ! :wq!
 nmap k gk
 nmap j gj
 
+" Easy list traversal
+noremap ` <C-^>
+nnoremap <silent> [b :bprevious<cr>
+nnoremap <silent> ]b :bnext<cr>
+nnoremap <silent> [B :bfirst<cr>
+nnoremap <silent> ]B :blast<cr>
+
 " Editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
