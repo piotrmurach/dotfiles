@@ -71,9 +71,6 @@ syntax enable        " Turn on syntax highlightning
 set background=dark
 colorscheme desert   " Pick current color scheme
 
-" Clear the search bugger when hitting return
-:nnoremap <CR> :nohlsearch<cr>
-
 """"""""""""
 " Mappings
 """"""""""""
@@ -182,6 +179,9 @@ if has("autocmd")
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   exe "normal g`\"" |
             \ endif
+    " Leave return key alone when in command line mode
+    autocmd! CmdWinEnter * :unmap <cr>
+    autocmd! CmdWinLeave * :call MapCR()
   augroup END
 
   augroup myfiletypes
@@ -194,6 +194,13 @@ endif
 """"""""""
 " Scripts
 """"""""""
+
+" Clear the search buffer when hitting return
+function! MapCR()
+  nnoremap <CR> :nohlsearch<cr>
+endfunction
+call MapCR()
+
 function! CorrectTestRunner()
   if expand('%') =~# '\.feature$'
     return "cucumber -r features"
