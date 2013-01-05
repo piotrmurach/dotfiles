@@ -175,7 +175,12 @@ map <leader>f :Ack<space>
 nmap <F1> <Esc>
 map! <F1> <Esc>
 
-map %/ <C-R>=expand("%:p:h")."/"<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e  :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+map <leader>v  :view %%
 
 " Auto commands
 if has("autocmd")
