@@ -87,7 +87,6 @@ nmap k gk
 nmap j gj
 
 " Easy list traversal
-noremap ` <C-^>
 nnoremap <silent> [b :bprevious<cr>
 nnoremap <silent> ]b :bnext<cr>
 nnoremap <silent> [B :bfirst<cr>
