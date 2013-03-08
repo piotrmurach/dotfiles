@@ -86,6 +86,9 @@ nmap :WQ! :wq!
 nmap k gk
 nmap j gj
 
+" Toggle paste
+nnoremap <leader>p :set paste!<cr>
+
 " Easy list traversal
 nnoremap <silent> [b :bprevious<cr>
 nnoremap <silent> ]b :bnext<cr>
