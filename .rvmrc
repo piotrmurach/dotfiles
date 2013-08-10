@@ -11,13 +11,3 @@ else
   # If the environment file has not yet been created, use the RVM CLI to select.
   rvm --create  "$environment_id"
 fi
-
-if [[ -s Gemfile ]] && ! command -v bundle >/dev/null
-then
-  printf "The rubygem 'bundler' is not installed. Installing it now.\n"
-  gem install bundler
-fi
-if [[ -s Gemfile ]] && command -v bundle
-then
-  bundle install
-fi
