@@ -133,6 +133,7 @@ map <leader>sc :sp db/schema.rb<cr>
 map <leader>n  :NERDTreeToggle<cr>
 map <leader>o :call RunCurrentLineInTest()<cr>
 map <leader>y :call RunCurrentTest()<cr>
+map <leader>u :call RunAllTests()<cr>
 
 " Shortcuts for Backbone.js
 autocmd User Rails Rnavcommand template    app/assets/templates                -glob=**/* -suffix=.jst.ejs
@@ -225,11 +226,53 @@ function! CorrectTestRunner()
   endif
 endfunction
 
+function! InTestFile()
+  return match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+endfunction
+
+function! RunAllTests()
+  let l:test = ''
+  call SetLastTestCommand(l:test)
+  call RunTests(l:test)
+endfunction
+
 function! RunCurrentTest()
-  exec "!" . CorrectTestRunner() expand('%:p')
+  if InTestFile()
+    let l:test = @%
+    call SetLastTestCommand(l:test)
+    call RunTests(l:test)
+  else
+    call RunLastTest()
+  endif
 endfunction
 
 function! RunCurrentLineInTest()
-  exec "!" . CorrectTestRunner() expand('%:p') . ":" . line(".")
+  let l:test = @% . ":" . line(".")
+  call SetLastTestCommand(l:test)
+  call RunTests(l:test)
 endfunction
 
+function! RunLastTest()
+  if exists("s:last_test_cmd")
+    call RunTests(s:last_test_cmd)
+  endif
+endfunction
+
+function! SetLastTestCommand(test)
+  let s:last_test_cmd = a:test
+endfunction
+
+function! RunWithBundler()
+  l:file = 'Gemfile'
+  if filereadable(l:file)
+    return "bundle exec "
+  endif
+  return ''
+endfunction
+
+function! RunTests(test)
+  if !empty(expand("%"))
+    write
+  endif
+  exec "!" . RunWithBundler() . CorrectTestRunner() . " " . a:test
+endfunction
