@@ -82,12 +82,9 @@ nmap :W! :w!
 nmap :Q! :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
-
 nmap k gk
 nmap j gj
-
-" Toggle paste
-nnoremap <leader>p :set paste!<cr>
+nnoremap <leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Easy list traversal
 nnoremap <silent> [b :bprevious<cr>
@@ -205,6 +202,22 @@ if has("autocmd")
     au BufRead,BufNewFile Gemfile set ft=ruby
   augroup END
 endif
+
+""""""""""
+" Plugins
+""""""""""
+
+" ================== Vim-go ====================
+let g:go_disable_autoinstall=1
+let g:go_fmt_fail_silently=1
+
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <leader>s <Plug>(go-def-split)
+au FileType go nmap <leader>v <Plug>(go-def-vertical)
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-run)
+au FileType go nmap <leader>t <Plug>(go-run)
 
 """"""""""
 " Scripts
