@@ -86,8 +86,7 @@ module Dotfiles
 
     desc 'list', 'List currently installed extensions.'
     def list
-      plugins.each { |plugin| say plugin, :green }
+      say plugins.join, :green
     end
-
   end # Vim
 end # Dotfiles
