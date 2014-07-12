@@ -17,3 +17,4 @@ git://github.com/mileszs/ack.vim.git
 git://github.com/kikijump/tslime.vim.git
 git://github.com/jgdavey/vim-turbux.git
 git://github.com/kchmck/vim-coffee-script.git
+git://github.com/fatih/vim-go.git

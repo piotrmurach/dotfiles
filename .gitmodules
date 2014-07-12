@@ -82,3 +82,7 @@
 	path = system/z
 	url = git://github.com/rupa/z.git
   ignore = untracked
+[submodule "/Users/lennyks/.dotfiles/vim/vim.link/bundle/vim-go"]
+	path = /Users/lennyks/.dotfiles/vim/vim.link/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+  ignore = untracked
