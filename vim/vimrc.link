@@ -11,8 +11,10 @@ call pathogen#infect()
 """""""""""""""""""
 " System-wide setup
 """""""""""""""""""
+set noerrorbells     " No beeps
 set number           " Show line numbers.
 set showmode         " Show what mode we are currently in
+set showcmd          " Show what is being typed
 set ruler            " Show cursor position.
 set scrolloff=3      " Minimum lines to keep around cursor
 set shiftwidth=2     " I like 2 spaces for indenting
