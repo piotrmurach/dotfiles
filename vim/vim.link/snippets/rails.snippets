@@ -1,0 +1,35 @@
+snippet ar
+	ActiveRecord::Base
+snippet concern
+	module ${1}
+		extend ActiveSupport::Concern
+
+		included do
+		end
+
+		module InstanceMethods
+		end
+
+		module ClassMethods
+		end
+	end
+# Relations
+snippet bt
+	belongs_to ${1}
+snippet hm
+	has_many ${1}
+snippet habtm
+	has_and_belongs_to_many ${1}
+# REST
+snippet index
+	def	index
+		@${1:model} = ${2:Model}.all
+	end
+snippet show
+	def show
+		@${1:model} = ${2:Model}.find(params[:id])
+	end
+snippet new
+	def new
+		@${1:model} = ${2:Model}.new
+	end
