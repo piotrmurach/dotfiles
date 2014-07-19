@@ -44,6 +44,16 @@ set shiftround       " Round spaces motions
 set noesckeys        " Get rid of the delay when hitting esc
 set nrformats=       " Treat numerals as decimal
 set synmaxcol=800    " Don't try to highlight lines longer than 800 chars
+set encoding=utf-8   " Set encoding to utf-8
+set nobackup         " Stop saving backups
+set nowritebackup
+set noswapfile
+if has('persistent_undo') " keep undo history across sessions
+  set undodir=~/.vimundo
+  set undofile
+else
+  call system('mkdir ~/.vimundo')
+endif
 
 " Completion
 set wildmenu         " Make tab completion for files/buffers act like bash
