@@ -21,15 +21,29 @@ snippet hm
 snippet habtm
 	has_and_belongs_to_many ${1}
 # REST
-snippet index
+snippet defindex
 	def	index
 		@${1:model} = ${2:Model}.all
 	end
-snippet show
+snippet defshow
 	def show
 		@${1:model} = ${2:Model}.find(params[:id])
 	end
-snippet new
+snippet defnew
 	def new
 		@${1:model} = ${2:Model}.new
+	end
+snippet defcreate
+	def create
+		@${1:model} = ${2:Model}.new($1_params)
+		if @$1.save
+			flash[:notice] = '$2 was successfully created.'
+			redirect_to :index
+		else
+			render :new
+		end
+snippet res
+	respond_to do |format|
+		format.html
+		format.js
 	end
