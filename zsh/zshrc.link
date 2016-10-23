@@ -1,8 +1,0 @@
-# shortcut to this dotfiles path is ZSH
-export ZSH=$HOME/.dotfiles
-
-# source every .zsh file in this repo
-for config_file ($ZSH/**/*.zsh) source $config_file
-
-# pick up rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
