@@ -68,3 +68,4 @@
 [submodule "vim/vim.link/bundle/vim-airline"]
 	path = vim/vim.link/bundle/vim-airline
 	url = git://github.com/vim-airline/vim-airline.git
+  ignore = untracked

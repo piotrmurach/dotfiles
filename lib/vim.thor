@@ -6,7 +6,7 @@ module Dotfiles
 
     no_tasks do
       def module_path
-        "#{root}/vim/vim.link/bundle"
+        'vim/vim.link/bundle'
       end
 
       def plugins_path
@@ -28,7 +28,7 @@ module Dotfiles
       end
 
       def update_docs
-        run "vim -e -c 'Helptags | quit'"
+        # run "vim -e -c 'Helptags | quit'"
       end
     end
 
@@ -47,7 +47,7 @@ module Dotfiles
         say 'Plugin already installed, check with dotfiles:vim:list', :red
         return
       end
-      install_submodule url, module_path
+      install_submodule(url, module_path)
       save_plugins(plugins << url)
       update_docs
     end
@@ -60,7 +60,7 @@ module Dotfiles
         return
       end
       say "Removing vim plugin #{url}", :red
-      uninstall_submodule url, module_path
+      uninstall_submodule(url, module_path)
       save_plugins plugins.reject { |plug| plug.strip == url }
     end
 

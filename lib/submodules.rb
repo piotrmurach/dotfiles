@@ -1,8 +1,6 @@
+# Modules handling
 module Submodules
-
   LINES_TO_REMOVE = 4
-
-  # Modules handling
 
   # Extract name for git module for supplied url
   #
@@ -18,12 +16,11 @@ module Submodules
   # @param [String] url
   # @param [String] path to directory
   #
-  def install_submodule(url, path)
+  def install_submodule(url, bundle_path)
     name = extract_module_name url
-    say "Installing #{name} from #{url} as git submodule inside #{root}/#{path}", :green
-    run "git submodule add #{url} #{path}/#{name}"
-    run 'git submodule init'
-    run 'git submodule update'
+    say "Installing #{name} from #{url} as git submodule inside #{bundle_path}", :green
+    run "git submodule add #{url} #{File.join(bundle_path, name)}"
+    run 'git submodule update --init --recursive'
     ignore_submodule name
   end
 
@@ -33,8 +30,7 @@ module Submodules
   #
   def ignore_submodule(name)
     insert_into_file "#{root}/.gitmodules", "\n  ignore = untracked",
-      :after => /.*url.*#{name}.*$/,
-      :force => true
+      after: /.*url.*#{name}.*$/, force: true
   end
 
   # Remove git submodule entry inside .gitmodule file
@@ -61,7 +57,7 @@ module Submodules
   # @param [String] module path
   #
   def remove_git_module(name, path)
-    remove_dir "#{root}/.git/modules/#{path}"
+    remove_dir("#{File.join(root, '.git/modules', path)}")
   end
 
   # Completely remove git submodule entry.
@@ -71,10 +67,11 @@ module Submodules
   #
   def uninstall_submodule(url, path)
     name = extract_module_name url
-    say "Uninstalling git module #{name} from #{root}/#{path}", :red
+    module_path = File.join(path, name)
+    say "Uninstalling git module #{name} from #{module_path}", :red
     delete_git_module name
-    run "git rm --cached #{path}/#{name}"
-    FileUtils.rm_rf "#{path}/#{name}"
+    run "git rm --cached #{module_path}"
+    FileUtils.rm_rf "#{module_path}"
     remove_git_module name, path
   end
 
