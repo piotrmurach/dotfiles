@@ -47,9 +47,6 @@ module Dotfiles
         super
         base.source_root
       end
-
-      def render_and_link_file()
-      end
     end
 
     desc 'install [PATH]', 'Hook dotfiles into system-standard positions. Defaults to user home directory.'
@@ -145,18 +142,6 @@ module Dotfiles
     desc 'modules', 'Display available modules'
     def modules
       status
-    end
-
-    desc 'brew', 'Installs homebrew package manager'
-    def brew
-      say "Installing homebrew for #{user}", :green
-      run " /usr/bin/ruby -e \"$(curl -fsSL https://raw.github.com/gist/323731)\""
-    end
-
-    desc 'gcc', 'Installs GCC compiler'
-    def gcc
-      say "Installing gcc compiler for #{user}", :green
-      run "curl https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg > GCC-10.6.pkg"
     end
 
     desc 'tools', 'Installs essential tools using homebrew'
