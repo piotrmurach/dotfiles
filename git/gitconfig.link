@@ -13,6 +13,7 @@
   di = diff
   dc = diff --cached
   st = status
+  s  = status -s
   ss = stash
   sl = stash list
   sa = stash apply
@@ -45,3 +46,9 @@
 	cmd = git-merge.rb \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [mergetool]
 	trustExitCode = false
+[push]
+  default = current
+[pull]
+  rebase = true
+[rerere]
+  enabled = true
