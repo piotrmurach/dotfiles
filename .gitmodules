@@ -66,3 +66,10 @@
 	path = system/z
 	url = git://github.com/rupa/z.git
   ignore = untracked
+[submodule "vim/vim.link/bundle/vim-airline"]
+	path = vim/vim.link/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-airline-themes"]
+	path = vim/vim.link/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
