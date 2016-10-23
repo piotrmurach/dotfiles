@@ -2,7 +2,6 @@
 
 module Dotfiles
   class Vim < Base
-
     namespace :vim
 
     no_tasks do
@@ -10,13 +9,17 @@ module Dotfiles
         "#{root}/vim/vim.link/bundle"
       end
 
+      def plugins_path
+        "#{root}/vim/plugins"
+      end
+
       def plugins
-        File.readlines("#{root}/vim/plugins.list")
+        File.readlines(plugins_path)
       end
 
       def save_plugins(*plugin_names)
-        File.open("#{root}/vim/plugins.list", 'wb') do |file|
-          plugin_names.each { |plugin| file.puts plugin }
+        File.open(plugins_path, 'wb') do |file|
+          plugin_names.each { |plugin| file.puts(plugin) }
         end
       end
 
@@ -40,17 +43,17 @@ module Dotfiles
         say 'Provide repo uri.', :red
         return
       end
-      if plugin_installed? url
+      if plugin_installed?(url)
         say 'Plugin already installed, check with dotfiles:vim:list', :red
         return
       end
       install_submodule url, module_path
-      save_plugins plugins << url
+      save_plugins(plugins << url)
       update_docs
     end
 
     desc 'rm [URL]', 'Removes vim plugin.'
-    method_options :force => :boolean, :aliases => "-f"
+    method_options force: :boolean, aliases: "-f"
     def rm(url)
       unless plugin_installed?(url)
         say "Plugin #{url} does not exists.", :red
@@ -62,10 +65,10 @@ module Dotfiles
     end
 
     desc 'pathogen', 'Installs pathogen if not already present'
-    method_options :force => :boolean
+    method_options force: :boolean
     def pathogen
       say 'Installing pathogen...', :green
-      if File.exists?("#{user_home}/.vim/autoload/pathogen.vim") && !options[:force]
+      if File.exist?("#{user_home}/.vim/autoload/pathogen.vim") && !options[:force]
         return unless yes? 'Pathogen already installed, do you want to overwrite'
       end
       url = "https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim"
@@ -73,20 +76,22 @@ module Dotfiles
     end
 
     desc 'install [FILE]', 'Install all vim files, saves your old vim config and symlinks new one'
-    method_options :force => :boolean
+    method_options force: :boolean
     def install(component = nil)
-      invoke "dotfiles:install", [], :linkable_path => File.join('**','vim',"*#{component}.{link}")
+      paths = File.join('**', 'vim', "*#{component}.{link}")
+      invoke('dotfiles:install', [], linkable_path: paths)
     end
 
     desc 'uninstall [FILE]', 'Uninstall all vim files, reverts back all backups.'
-    method_options :foce => :boolean
+    method_options foce: :boolean
     def uninstall(component = nil)
-      invoke "dotfiles:uninstall", [], :linkable_path => File.join('**','vim',"*#{component}.{link}")
+      paths = File.join('**', 'vim', "*#{component}.{link}")
+      invoke('dotfiles:uninstall', [], linkable_path: paths)
     end
 
     desc 'list', 'List currently installed extensions.'
     def list
-      say plugins.join, :green
+      say(plugins.join, :green)
     end
   end # Vim
 end # Dotfiles
