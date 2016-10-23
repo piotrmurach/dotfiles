@@ -26,10 +26,6 @@
 	path = vim/vim.link/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
   ignore = untracked
-[submodule "vim/vim.link/bundle/vim-rvm"]
-	path = vim/vim.link/bundle/vim-rvm
-	url = git://github.com/tpope/vim-rvm.git
-  ignore = untracked
 [submodule "vim/vim.link/bundle/vim-bundler"]
 	path = vim/vim.link/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
