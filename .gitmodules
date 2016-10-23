@@ -73,3 +73,4 @@
 [submodule "vim/vim.link/bundle/vim-airline-themes"]
 	path = vim/vim.link/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+  ignore = untracked
