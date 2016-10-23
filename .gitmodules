@@ -34,10 +34,6 @@
 	path = vim/vim.link/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
   ignore = untracked
-[submodule "vim/vim.link/bundle/nerdtree"]
-	path = vim/vim.link/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-  ignore = untracked
 [submodule "vim/vim.link/bundle/syntastic"]
 	path = vim/vim.link/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
