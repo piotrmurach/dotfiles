@@ -4,71 +4,44 @@ A small set of config files to set up a system environment for maximum productiv
 
 ## Installation
 
-```
-git clone git:://github.com/peter-murach/dotfiles ~/.dotfiles
-bundle install
+Clone the repository
 
-thor dotfiles:update
-thor dotfiles:install
+```bash
+git clone git:://github.com/peter-murach/dotfiles ~/.dotfiles
+```
+
+and then update dependencies
+
+```bash
+bundle install
 ```
 
 ## Usage
 
-### All dotfiles
+To see all available installation tasks do:
 
-To setup all dotfiles do `thor dotfiles:install` or pick and choose.
-```
-thor list                # Lists all available tasks
-thor dotfiles:install    # This will setup all dot files in home directory
-thor dotfiles:modules    # Displays available modules
-thor dotfiles:tools      # Installs essential tools using homebrew
-thor dotfiles:update     # Syncs dotfiles with the github HEAD and update submodules
+```bash
+thor list
 ```
 
-### Git
+To install all dotfiles do:
 
-```
-thor git:install [FILE]   # Installs all or specific git file
-thor git:uninstall [FILE] # Uninstalls all or specific git file
-thor git:add [URL]        # Adds new git component
-thor git:rm [URL]         # Removes git component
+```bash
+thor dotfiles:install
 ```
 
-### Vim
+To sync dotfiles with github HEAD and update submodules do
 
-Related vim tasks are scoped by vim namespace.
-
-```
-thor vim:install [FILE]   # Installs all vim goodness or specific component
-thor vim:add 'git-repo'   # Install vim component
-thor vim:rm  'git-repo'   # Uninstall vim component
-thor vim:list             # List currently installed components
-thor vim:update           # Updates all the components to the lastest
+```bash
+thor dotfiles:update
 ```
 
-### Ruby
-```
-thor ruby:install [FILE]    # Installs specific ruby and irb extensions
-thor ruby:uninstall [FILE]  # Uninstalls specific ruby and irb extensions
-```
+To list all submodules do:
 
-### RVM
-```
-thor rvm:install  # Install rvm from source
-thor rvm:update   # Update your version of rvm
-```
-
-## System
-
-Helps to manage tools that improve productivity inside unix/bsd system.
-
-```
-thor system:add [URL]         # Installs a system wide script/tool
-thor system:install [FILE]    # Installs all system files
-thor system:rm [URL]          # Uninstalls a system wide script/tool
-thor system:uninstall [FILE]  # Uninstalls all system files
+```bash
+thor dotfiles:modules
 ```
 
 ## Copyright
 
-Copyright (c) 2012 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012-2016 Piotr Murach. See LICENSE for further details.
