@@ -1,8 +1,17 @@
-# Piotr Murach Dot Files
+# My dotfiles
 
-A small set of config files to set up a system environment for maximum productivity. My weapons of choice are OS X, homebrew, git, Ruby, vim and some more.
+A minimal set of config files to set up a system environment for maximum productivity.
+
+I develop in Linux and OSX systems so I make sure that everything works for these systems.
+
+The tools that I cannot develop without are:
+* bash
+* git 
+* vim
 
 ## Installation
+
+In order to setup this dotfiles you will need `git` and `bundler`
 
 Clone the repository
 
