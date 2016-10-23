@@ -80,8 +80,10 @@ augroup cline
 augroup END
 
 syntax enable        " Turn on syntax highlightning
+" Pick current color scheme
 set background=dark
-colorscheme Tomorrow-Night   " Pick current color scheme
+colorscheme Tomorrow-Night
+let g:airline_theme="tomorrow"
 
 """"""""""""
 " Mappings
