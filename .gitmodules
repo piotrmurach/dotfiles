@@ -58,10 +58,6 @@
 	path = vim/vim.link/bundle/taglist.vim
 	url = git://github.com/vim-scripts/taglist.vim.git
   ignore = untracked
-[submodule "vim/vim.link/bundle/ack.vim"]
-	path = vim/vim.link/bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
-  ignore = untracked
 [submodule "vim/vim.link/bundle/tslime.vim"]
 	path = vim/vim.link/bundle/tslime.vim
 	url = git://github.com/kikijump/tslime.vim.git
