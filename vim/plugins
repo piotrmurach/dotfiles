@@ -12,6 +12,5 @@ git://github.com/scrooloose/syntastic.git
 git://github.com/godlygeek/tabular.git
 git://github.com/msanders/snipmate.vim.git
 git://github.com/vim-scripts/taglist.vim.git
-git://github.com/kikijump/tslime.vim.git
 git://github.com/jgdavey/vim-turbux.git
 git://github.com/kchmck/vim-coffee-script.git
