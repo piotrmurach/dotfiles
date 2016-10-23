@@ -31,6 +31,7 @@ To see all available installation tasks do:
 
 ```bash
 thor list
+thor list [NAME]
 ```
 
 To install all dotfiles do:
