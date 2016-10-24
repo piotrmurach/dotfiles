@@ -12,7 +12,9 @@ call pathogen#infect()
 " System-wide setup
 """""""""""""""""""
 set noerrorbells     " No beeps
+set relativenumber
 set number           " Show line numbers.
+set numberwidth=4
 set showmode         " Show what mode we are currently in
 set showcmd          " Show what is being typed
 set ruler            " Show cursor position.
