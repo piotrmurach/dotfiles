@@ -251,7 +251,7 @@ function! CorrectTestRunner()
   elseif expand('%') =~# '_spec\.rb$'
     return "rspec"
   else
-    return "ruby -Itest"
+    return "ruby -I test"
   endif
 endfunction
 
@@ -292,11 +292,11 @@ function! SetLastTestCommand(test)
 endfunction
 
 function! RunWithBundler()
-  l:file = 'Gemfile'
-  if filereadable(l:file)
+  if filereadable('Gemfile')
     return "bundle exec "
+  else
+    return ''
   endif
-  return ''
 endfunction
 
 function! RunTests(test)
