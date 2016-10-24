@@ -13,3 +13,5 @@ git://github.com/msanders/snipmate.vim.git
 git://github.com/vim-scripts/taglist.vim.git
 git://github.com/jgdavey/vim-turbux.git
 git://github.com/kchmck/vim-coffee-script.git
+https://github.com/vim-airline/vim-airline.git
+https://github.com/vim-airline/vim-airline-themes.git
