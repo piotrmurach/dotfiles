@@ -94,3 +94,15 @@
 	path = vim/vim.link/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
   ignore = untracked
+[submodule "vim/vim.link/bundle/nerdtree"]
+	path = vim/vim.link/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/html5.vim"]
+	path = vim/vim.link/bundle/html5.vim
+	url = https://github.com/othree/html5.vim.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-json"]
+	path = vim/vim.link/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
+  ignore = untracked
