@@ -74,3 +74,23 @@
 	path = vim/vim.link/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
   ignore = untracked
+[submodule "vim/vim.link/bundle/vim-commentary"]
+	path = vim/vim.link/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-eunuch"]
+	path = vim/vim.link/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-abolish"]
+	path = vim/vim.link/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-repeat"]
+	path = vim/vim.link/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+  ignore = untracked
+[submodule "vim/vim.link/bundle/vim-dispatch"]
+	path = vim/vim.link/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+  ignore = untracked

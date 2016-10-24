@@ -15,3 +15,8 @@ git://github.com/jgdavey/vim-turbux.git
 git://github.com/kchmck/vim-coffee-script.git
 https://github.com/vim-airline/vim-airline.git
 https://github.com/vim-airline/vim-airline-themes.git
+https://github.com/tpope/vim-commentary.git
+https://github.com/tpope/vim-eunuch.git
+https://github.com/tpope/vim-abolish.git
+https://github.com/tpope/vim-repeat.git
+https://github.com/tpope/vim-dispatch.git
