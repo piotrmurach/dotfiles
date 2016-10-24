@@ -19,6 +19,7 @@
   sa = stash apply
   unstage = reset HEAD --
   uns = reset HEAD --
+  update = !git pull && git submodule update --init --recursive
   pom = push origin master
   pullff = pull --ff-only
   type = cat-file -t
@@ -49,6 +50,6 @@
 [push]
   default = current
 [pull]
-  rebase = true
+  rebase = false
 [rerere]
   enabled = true
