@@ -20,6 +20,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'msanders/snipmate.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Display
 Plug 'vim-airline/vim-airline'
