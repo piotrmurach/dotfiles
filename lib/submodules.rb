@@ -56,7 +56,7 @@ module Submodules
   # @param [String] module name
   # @param [String] module path
   #
-  def remove_git_module(name, path)
+  def remove_git_module(path)
     remove_dir("#{File.join(root, '.git/modules', path)}")
   end
 
@@ -72,7 +72,7 @@ module Submodules
     delete_git_module name
     run "git rm --cached #{module_path}"
     FileUtils.rm_rf "#{module_path}"
-    remove_git_module name, path
+    remove_git_module(module_path)
   end
 
   # Brings all the submodules up to date.
