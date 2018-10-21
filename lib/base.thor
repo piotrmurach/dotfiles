@@ -69,7 +69,7 @@ module Dotfiles
       linkables = if options.linkable_path?
         Dir.glob(options.linkable_path)
       else
-        Dir.glob('*/**{.link}')
+        Dir.glob('**/*{.link}')
       end
 
       home_dir = path ? path.to_s : File.expand_path("~#{user}")
