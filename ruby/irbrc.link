@@ -4,25 +4,20 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems' unless ENV['NO_RUBYGEMS']
 
-#
-# Setup irb
-#
+IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
-IRB.conf[:AUTO_INDENT]  = true
 
-#
 # Extend object with helper methods
-#
 class Object
   # list methods which aren't in superclass
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
+  alias :lm :local_methods
 
   # print documentation
-  #
   def ri(method = nil)
     unless method && method =~ /^[A-Z]/ # if class isn't specified
       klass = self.kind_of?(Class) ? name : self.class.name
@@ -32,9 +27,7 @@ class Object
   end
 end
 
-#
 # Extend Array & Hash with toy methods
-#
 class Array
   def self.toy(n=10, &block)
     block_given? ? Array.new(n, &block) : Array.new(n) { |i| i + 1 }
@@ -47,9 +40,7 @@ class Hash
   end
 end
 
-#
 # Load rails irb extensions
-#
 railsrc_path = File.expand_path "~/.railsrc"
 if defined?(Rails) || ENV['RAILS_ENV']
   puts "#{ENV['RAILS_ENV']}"
@@ -60,12 +51,10 @@ if defined?(Rails) || ENV['RAILS_ENV']
   end
 end
 
-#
-# Load Pry
-#
-begin
-  require 'pry'
-  Pry.start
-  exit
-rescue LoadError
-end
+# Load Pry if available
+# begin
+#   require 'pry'
+#   Pry.start
+#   exit
+# rescue LoadError
+# end
