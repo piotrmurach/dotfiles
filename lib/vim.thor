@@ -64,17 +64,6 @@ module Dotfiles
       save_plugins plugins.reject { |plug| plug.strip == url }
     end
 
-    desc 'pathogen', 'Installs pathogen if not already present'
-    method_options force: :boolean
-    def pathogen
-      say 'Installing pathogen...', :green
-      if File.exist?("#{user_home}/.vim/autoload/pathogen.vim") && !options[:force]
-        return unless yes? 'Pathogen already installed, do you want to overwrite'
-      end
-      url = "https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim"
-      run "curl -so #{root}/vim/vim.link/autoload/pathogen.vim #{url}"
-    end
-
     desc 'install [FILE]', 'Install all vim files, saves your old vim config and symlinks new one'
     method_options force: :boolean
     def install(component = nil)
