@@ -1,7 +1,5 @@
 .DS_Store
-*.sw[po]
-
-## Project::SPECIFIC
 tmp
 .bundle
 Gemfile.lock
+vim/vim.link/bundle/**
