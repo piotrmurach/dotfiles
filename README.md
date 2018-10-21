@@ -5,9 +5,10 @@ A minimal set of config files to set up a system environment for maximum product
 I develop in Linux and OSX systems so I make sure that everything works for these systems.
 
 The tools that I cannot develop without are:
-* bash
-* git 
-* vim
+* `bash`
+* `git`
+* `vim`
+* `Ruby`
 
 ## Installation
 
@@ -16,10 +17,10 @@ In order to setup this dotfiles you will need `git` and `bundler`
 Clone the repository
 
 ```bash
-git clone git:://github.com/peter-murach/dotfiles ~/.dotfiles
+git clone git:://github.com/piotrmurach/dotfiles ~/.dotfiles
 ```
 
-and then update dependencies
+and then install dependencies
 
 ```bash
 bundle install
@@ -40,18 +41,18 @@ To install all dotfiles do:
 thor dotfiles:install
 ```
 
+Or to install individual tools do:
+
+```bash
+thor vim:install
+```
+
 To sync dotfiles with github HEAD and update submodules do
 
 ```bash
 thor dotfiles:update
 ```
 
-To list all submodules do:
-
-```bash
-thor dotfiles:modules
-```
-
 ## Copyright
 
-Copyright (c) 2012-2016 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012-2018 Piotr Murach. See LICENSE for further details.
