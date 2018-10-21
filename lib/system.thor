@@ -10,17 +10,17 @@ module Dotfiles
       end
     end
 
-    desc 'install [FILE]', 'Installs all system files, saves your old files and symlinks new ones.'
+    desc 'install [NAME]', 'Installs all system files, saves your old files and symlinks new ones.'
     method_options force: :boolean
-    def install(component = nil)
-      paths = File.join('**', 'system', "*#{component}.{link}")
+    def install(name = nil)
+      paths = File.join('**', 'system', "*#{name}.{link}")
       invoke('dotfiles:install', [], linkable_path: paths)
     end
 
-    desc 'uninstall [FILE]', 'Uninstalls all system files, reverts back all backups.'
+    desc 'uninstall [NAME]', 'Uninstalls all system files, reverts back all backups.'
     method_options foce: :boolean
-    def uninstall(component = nil)
-      paths = File.join('**', 'system', "*#{component}.{link}")
+    def uninstall(name = nil)
+      paths = File.join('**', 'system', "*#{name}.{link}")
       invoke('dotfiles:uninstall', [], linkable_path: paths)
     end
   end # System
