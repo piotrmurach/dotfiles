@@ -20,7 +20,7 @@ module Dotfiles
     end
 
     desc 'uninstall [FILE]', 'Uninstall all git files, reverts back all backups.'
-    method_options :foce => :boolean
+    method_options :force => :boolean
     def uninstall(component = nil)
       invoke "dotfiles:uninstall", [], :linkable_path => File.join('**','js',"*#{component}.{link}")
     end
