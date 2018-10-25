@@ -176,38 +176,26 @@ autocmd User Rails Rnavcommand step   features/step_definitions -glob=**/* -suff
 autocmd User Rails Rnavcommand config config                    -glob=**/* -default=routes
 command! Rroutes :e config/routes.rb
 
-map <leader>rm :Rmodel<space>
-map <leader>rc :Rcontroller<space>
-map <leader>rv :Rview<space>
-map <leader>rh :Rhelper<space>
-map <leader>rs :Rspec<space>
-map <leader>ri :Rinitializer<space>
-map <leader>rj :Rjavascript<space>
-map <leader>ry :Rstylesheet<space>
-map <leader>rl :Rlayout<space>
-map <leader>mi :Rmigration<space>
-map <leader>re :Rextract<space>
-map <leader>rp :Rstep<cr>
+map <leader>rc  :Rcontroller<space>
+map <leader>rf  :Rfixtures<space>
+map <leader>rh  :Rhelper<space>
+map <leader>ri  :Rinitializer<space>
+map <leader>rit :Rintegrationtest<space>
+map <leader>rj  :Rjavascript<space>
+map <leader>rl  :Rlayout<space>
+map <leader>rlo :Rlocale<space>
+map <leader>rmi :Rmigration<space>
+map <leader>rm  :Rmodel<space>
+map <leader>rs  :Rspec<space>
+map <leader>ry  :Rstylesheet<space>
+map <leader>ru  :Runittest<space>
+map <leader>rv  :Rview<space>
+
 map <leader>sc :sp db/schema.rb<cr>
 map <leader>n  :NERDTreeToggle<cr>
 map <leader>o :call RunCurrentLineInTest()<cr>
 map <leader>y :call RunCurrentTest()<cr>
 map <leader>u :call RunAllTests()<cr>
-
-" Shortcuts for Backbone.js
-autocmd User Rails Rnavcommand template    app/assets/templates                -glob=**/* -suffix=.jst.ejs
-autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models       -glob=**/* -suffix=.coffee
-autocmd User Rails Rnavcommand jview       app/assets/javascripts/views        -glob=**/* -suffix=.coffee
-autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections  -glob=**/* -suffix=.coffee
-autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers      -glob=**/* -suffix=.coffee
-autocmd User Rails Rnavcommand jspec       spec/javascripts                    -glob=**/* -suffix=.coffee
-
-map <leader>jt :Rtemplate<space>
-map <leader>jm :Rjmodel<space>
-map <leader>jv :Rjview<space>
-map <leader>jc :Rjcollection<space>
-map <leader>jr :Rjrouter<space>
-map <leader>js :Rjspec<space>
 
 " Shortcuts for alignment
 if exists(":Tabularize")
