@@ -247,6 +247,10 @@ if has("autocmd")
     au BufRead,BufNewFile *.ru set ft=ruby
     au BufRead,BufNewFile Gemfile set ft=ruby
   augroup END
+
+  "Spellcheck for md and txt files
+  autocmd FileType markdown setlocal spell
+  autocmd FileType text setlocal spell
 endif
 
 """"""""""
