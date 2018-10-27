@@ -172,10 +172,6 @@ map <leader>[  :tabprevious<cr>
 map <leader>]  :tabnext<cr>
 
 " Shortcuts for Rails commands
-autocmd User Rails Rnavcommand step   features/step_definitions -glob=**/* -suffix=_steps.rb
-autocmd User Rails Rnavcommand config config                    -glob=**/* -default=routes
-command! Rroutes :e config/routes.rb
-
 map <leader>rc  :Rcontroller<space>
 map <leader>rf  :Rfixtures<space>
 map <leader>rh  :Rhelper<space>
