@@ -8,22 +8,20 @@ unbind-key C-b
 set-option -g prefix C-a
 
 # allow for scrolling and text selection from scrollback
-set -g mode-mouse on
+setw -g mouse on
+
+# increase scrollback lines
+set -g history-limit 10000
 
 # tell tmux to use 256 colour terminal
 set -g default-terminal "screen-256color"
 
 # start indexing windows from 1, just like tabs
 set -g base-index 1
+set-window-option -g pane-base-index 1
 
 # window titles
 set -g set-titles on
-
-# instructs tmux to expect UTF-8 sequences
-setw -g utf8 on
-
-# start window indexing at one instead of zero
-set -g base-index 1
 
 # Statusbar
 
@@ -58,10 +56,8 @@ set -g automatic-rename
 
 # bind key for last active window
 bind-key C-a last-window
-# bind key for idicator of each pane
+# bind key for indicator of each pane
 bind-key w display-panes
-
-bind R source-file ~/.tmux.conf ; display 'RELOADED!'
 
 # horizontal/vertical splits
 unbind %
