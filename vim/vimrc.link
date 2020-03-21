@@ -133,6 +133,12 @@ set background=dark
 colorscheme Tomorrow-Night
 let g:airline_theme="tomorrow"
 
+"""""""""""""""""""""""""
+" vim-ruby configuration
+"""""""""""""""""""""""""
+:let g:ruby_indent_assignment_style = "hanging"
+:let g:ruby_indent_block_style = "do"
+
 """"""""""""
 " Mappings
 """"""""""""
