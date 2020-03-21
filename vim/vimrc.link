@@ -279,24 +279,23 @@ au FileType go nmap <leader>t <Plug>(go-run)
 " Scripts
 """"""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""
 " Clear the search buffer when hitting return
+""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
   nnoremap <CR> :nohlsearch<cr>
 endfunction
 call MapCR()
 
-function! CorrectTestRunner()
-  if expand('%') =~# '\.feature$'
-    return "cucumber -r features"
-  elseif expand('%') =~# '_spec\.rb$'
-    return "rspec"
-  else
-    return "ruby -I test"
-  endif
-endfunction
-
+"""""""""""
+" Run tests
+""""""""""""
 function! InTestFile()
   return match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+endfunction
+
+function! SetLastTestCommand(test)
+  let s:last_test_cmd = a:test
 endfunction
 
 function! RunAllTests()
@@ -327,21 +326,27 @@ function! RunLastTest()
   endif
 endfunction
 
-function! SetLastTestCommand(test)
-  let s:last_test_cmd = a:test
+function! RunTests(filename)
+  if !empty(expand("%"))
+    write
+  endif
+  exec "!" . RunWithBundler() . CorrectTestRunner() . " " . a:filename
 endfunction
 
 function! RunWithBundler()
   if filereadable('Gemfile')
     return "bundle exec "
   else
-    return ''
+    return ""
   endif
 endfunction
 
-function! RunTests(test)
-  if !empty(expand("%"))
-    write
+function! CorrectTestRunner()
+  if expand('%') =~# '\.feature$'
+    return "cucumber -r features"
+  elseif expand('%') =~# '_spec\.rb$'
+    return "rspec"
+  else
+    return "ruby -I test"
   endif
-  exec "!" . RunWithBundler() . CorrectTestRunner() . " " . a:test
 endfunction
