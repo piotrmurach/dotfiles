@@ -58,7 +58,6 @@ call plug#end()
 " System-wide setup
 """""""""""""""""""
 set noerrorbells     " No beeps
-set relativenumber
 set number           " Show line numbers.
 set numberwidth=4
 set showmode         " Show what mode we are currently in
@@ -67,6 +66,7 @@ set ruler            " Show cursor position.
 set scrolloff=3      " Minimum lines to keep around cursor
 set shiftwidth=2     " I like 2 spaces for indenting
 set tabstop=2        " Set 2 stops
+set softtabstop=2    " Set 2 stops
 set expandtab        " Spaces instead of tabs
 set autoindent       " Always set autoindenting on
 set wrap             " Turn on line wrapping.
@@ -111,7 +111,7 @@ set wildignore+=*.zip,*.tar                   " Compressed files
 set wildignore+=*.avi,*.wmv,*.ogg,*.mp3,*.mov " Video files
 set wildignore+=*.jpg,*.gif,*.png             " Binary images
 set wildignore+=*.sw?                         " Vim swap files
-set completeopt=menu,menuone,longest,preview
+set completeopt=menu,menuone,longest,preview  " Completion options, menu: popup menu
 
 " Folding
 set nofoldenable      " Turn off folding
