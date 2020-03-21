@@ -279,6 +279,21 @@ au FileType go nmap <leader>t <Plug>(go-run)
 " Scripts
 """"""""""
 
+""""""""""""""""""""""""""""""""""
+" Add frozen_string_literal: true
+""""""""""""""""""""""""""""""""""
+function! AddFrozenStringLiteral()
+  let l:literal = "# frozen_string_literal: true"
+  let l:filename = expand("%")
+
+  if filename =~# "\.rb$"
+    call append(0, literal)
+    call append(1, "")
+  endif
+endfunction
+map <leader>ff :call AddFrozenStringLiteral()<cr>
+autocmd BufNewFile *.rb call AddFrozenStringLiteral()
+
 """"""""""""""""""""""""""""""""""""""""""""""
 " Clear the search buffer when hitting return
 """"""""""""""""""""""""""""""""""""""""""""""
