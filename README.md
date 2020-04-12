@@ -55,4 +55,4 @@ thor dotfiles:update
 
 ## Copyright
 
-Copyright (c) 2012-2018 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012 Piotr Murach. See LICENSE for further details.
