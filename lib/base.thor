@@ -51,20 +51,20 @@ module Dotfiles
 
     desc 'install [PATH]', 'Hook dotfiles into system-standard positions. Defaults to user home directory.'
     method_option :skip_all, :type => :boolean, :aliases => "-s",
-                  :default => :false,
+                  :default => false,
                   :desc => "Skip dotfiles that already exist"
     method_option :backup_all, :type => :boolean, :aliases => "-b",
-                  :default => :false,
+                  :default => false,
                   :desc => "Backup dotfiles that already exist"
     method_option :overwrite_all, :type => :boolean, :aliases => "-o",
-                  :default => :false,
+                  :default => false,
                   :desc => "Backup dotfiles that already exist"
     method_option :force, :type => :boolean, :aliases => "-f",
-                  :default => :false
+                  :default => false
     def install(path = nil)
-      skip_all = false
-      overwrite_all = false
-      backup_all = false
+      skip_all = options[:skip_all]
+      overwrite_all = options[:overwrite_all]
+      backup_all = options[:backup_all]
 
       linkables = if options.linkable_path?
         Dir.glob(options.linkable_path)
