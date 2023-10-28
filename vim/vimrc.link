@@ -1,14 +1,11 @@
-" This is vimrc for Vim
-" This file contains main configuration settings
-" to aid in comfortable and productive programming
-" written by Piotr Murach
-
 set nocompatible
 
-" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 
-" Navigation & Buffers
+" Searching
 Plug 'scrooloose/nerdtree'
 
 " Editing
@@ -28,19 +25,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/taglist.vim'
 Plug 'scrooloose/syntastic'
 
-" Unix shell
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-dispatch'
-Plug 'jgdavey/vim-turbux'
-
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 
-" Langauges
+" Syntax
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
@@ -50,8 +42,11 @@ Plug 'tpope/vim-cucumber'
 Plug 'elixir-lang/vim-elixir'
 Plug 'rhysd/vim-crystal'
 
-" Other
-Plug 'ekalinin/Dockerfile.vim'
+" Terminal
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-dispatch'
+Plug 'jgdavey/vim-turbux'
 
 call plug#end()
 
