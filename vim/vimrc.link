@@ -6,7 +6,7 @@ set nocompatible
 call plug#begin('~/.vim/bundle')
 
 " Searching {{{2
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Editing {{{2
 Plug 'AndrewRadev/splitjoin.vim'
