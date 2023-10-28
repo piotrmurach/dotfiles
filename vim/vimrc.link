@@ -1,14 +1,14 @@
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS
+" PLUGINS {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 
-" Searching
+" Searching {{{2
 Plug 'scrooloose/nerdtree'
 
-" Editing
+" Editing {{{2
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-ragtag'
@@ -19,19 +19,19 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'msanders/snipmate.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
-" Display
+" Display {{{2
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/taglist.vim'
 Plug 'scrooloose/syntastic'
 
-" Ruby
+" Ruby {{{2
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 
-" Syntax
+" Syntax {{{2
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'
@@ -42,7 +42,7 @@ Plug 'tpope/vim-cucumber'
 Plug 'elixir-lang/vim-elixir'
 Plug 'rhysd/vim-crystal'
 
-" Terminal
+" Terminal {{{2
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
