@@ -190,7 +190,12 @@ map <leader>ru  :Runittest<space>
 map <leader>rv  :Rview<space>
 
 map <leader>sc :sp db/schema.rb<cr>
-map <leader>n  :NERDTreeToggle<cr>
+
+" NERD_tree.vim
+nnoremap <leader>n :NERDTreeFocus<cr>
+nnoremap <C-n> :NERDTree<cr>
+nnoremap <C-t> :NERDTreeToggle<cr>
+
 map <leader>o :call RunCurrentLineInTest()<cr>
 map <leader>y :call RunCurrentTest()<cr>
 map <leader>u :call RunAllTests()<cr>
