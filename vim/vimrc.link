@@ -10,6 +10,7 @@ Plug 'preservim/nerdtree'
 
 " Editing {{{2
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'msanders/snipmate.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'tpope/vim-commentary'
