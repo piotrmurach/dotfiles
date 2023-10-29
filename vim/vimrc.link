@@ -47,6 +47,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
+" Utility {{{2
+Plug 'MarcWeber/vim-addon-mw-utils'
+
 call plug#end()
 
 """""""""""""""""""
