@@ -143,6 +143,9 @@ let g:easy_align_ignore_groups = []
 :let g:ruby_indent_assignment_style = "hanging"
 :let g:ruby_indent_block_style = "do"
 
+" snipMate.vim
+let g:snipMate = {'snippet_version' : 1}
+
 """"""""""""
 " Mappings
 """"""""""""
