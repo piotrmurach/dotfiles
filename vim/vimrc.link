@@ -10,7 +10,6 @@ Plug 'preservim/nerdtree'
 
 " Editing {{{2
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'godlygeek/tabular'
 Plug 'msanders/snipmate.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'tpope/vim-commentary'
@@ -199,16 +198,6 @@ nnoremap <C-t> :NERDTreeToggle<cr>
 map <leader>o :call RunCurrentLineInTest()<cr>
 map <leader>y :call RunCurrentTest()<cr>
 map <leader>u :call RunAllTests()<cr>
-
-" Shortcuts for alignment
-if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<cr>
-  vmap <leader>a= :Tabularize /=<cr>
-  nmap <leader>a{ :Tabularize /{<cr>
-  vmap <leader>a{ :Tabularize /{<cr>
-  nmap <leader>a: :Tabularize /:\zs<cr>
-  vmap <leader>a: :Tabularize /:\zs<cr>
-endif
 
 " Shortcuts for git
 map <leader>ga :Gadd<cr>
