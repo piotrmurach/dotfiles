@@ -131,6 +131,7 @@ let g:airline_theme="tomorrow"
 
 " easy_align.vim
 let g:easy_align_bypass_fold = 1
+let g:easy_align_ignore_groups = []
 
 """""""""""""""""""""""""
 " vim-ruby configuration
