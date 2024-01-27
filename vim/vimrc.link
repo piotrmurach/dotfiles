@@ -228,9 +228,6 @@ map <leader>gs :Gstatus<cr>
 map <leader>gw :Gwrite<cr>
 vmap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
-" Begin searching with ack
-map <leader>f :Ack<space>
-
 " No more accidents with Help
 nmap <F1> <Esc>
 map! <F1> <Esc>
