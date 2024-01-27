@@ -7,6 +7,7 @@ call plug#begin('~/.vim/bundle')
 
 " Searching {{{2
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
+Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 
 " Editing {{{2
