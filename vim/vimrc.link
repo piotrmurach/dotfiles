@@ -6,6 +6,7 @@ set nocompatible
 call plug#begin('~/.vim/bundle')
 
 " Searching {{{2
+Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'preservim/nerdtree'
 
 " Editing {{{2
