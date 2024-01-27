@@ -140,6 +140,9 @@ let g:airline_theme="tomorrow"
 let g:easy_align_bypass_fold = 1
 let g:easy_align_ignore_groups = []
 
+" fzf.vim
+let g:fzf_layout = {'down': '~60%'}
+
 """""""""""""""""""""""""
 " vim-ruby configuration
 """""""""""""""""""""""""
